@@ -9,6 +9,14 @@
     --text-secondary: #8a8a8a;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg);
     color: #ffffff;
@@ -35,6 +43,12 @@ body {
     transition: border-color 0.3s ease;
 }
 
+@media (max-width: 640px) {
+    .bento-card {
+        border-radius: 16px;
+    }
+}
+
 .bento-card:hover {
     border-color: rgba(255, 255, 255, 0.15);
 }
@@ -46,11 +60,26 @@ body {
     border-radius: 12px;
     font-weight: 600;
     transition: transform 0.2s ease, opacity 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    .btn-primary {
+        padding: 14px 20px;
+        font-size: 14px;
+        width: 100%;
+    }
 }
 
 .btn-primary:hover {
     opacity: 0.9;
     transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
 }
 
 .btn-secondary {
@@ -61,31 +90,105 @@ body {
     border-radius: 12px;
     font-weight: 600;
     transition: background 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    .btn-secondary {
+        padding: 14px 20px;
+        font-size: 14px;
+        width: 100%;
+    }
 }
 
 .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.05);
 }
 
+.btn-secondary:active {
+    transform: scale(0.98);
+}
+
 .nav-blur {
     backdrop-filter: blur(12px);
-    background: rgba(3, 3, 3, 0.7);
+    background: rgba(3, 3, 3, 0.85);
 }
 
 @keyframes bounce-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .animate-bounce-slow {
     animation: bounce-slow 4s infinite ease-in-out;
 }
 
-/* Custom styles for components if needed */
+/* Hide on mobile */
+@media (max-width: 640px) {
+    .animate-bounce-slow {
+        display: none;
+    }
+}
+
+/* Custom scrollbar hiding */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+}
+
+/* Safe area for mobile devices with notches */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .nav-blur {
+        padding-top: calc(1rem + env(safe-area-inset-top));
+    }
+
+    body {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+
+    button,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Prevent text overflow */
+.text-balance {
+    text-wrap: balance;
+}
+
+/* Mobile-friendly section padding */
+@media (max-width: 640px) {
+    section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }

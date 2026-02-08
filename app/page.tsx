@@ -161,6 +161,7 @@ const FeatureShowcase = ({ icon: Icon, title, description, badge, preview }: { i
 
 export default function Home() {
     const [roleIndex, setRoleIndex] = useState(0);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -169,6 +170,18 @@ export default function Home() {
         }, 3000);
         return () => clearInterval(interval);
     }, []);
+
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [mobileMenuOpen]);
 
     const scroll = (direction: 'left' | 'right') => {
         if (scrollContainerRef.current) {
@@ -180,14 +193,43 @@ export default function Home() {
 
     return (
         <div className="relative">
-            <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-6 py-4">
+            {/* Mobile Menu Overlay */}
+            {mobileMenuOpen && (
+                <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl lg:hidden">
+                    <div className="flex flex-col h-full p-6">
+                        <div className="flex items-center justify-between mb-12">
+                            <div className="flex items-center space-x-2.5">
+                                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                                    <div className="w-4 h-4 bg-black rounded-sm"></div>
+                                </div>
+                                <span className="font-bold text-xl tracking-tight text-white">ProactAI</span>
+                            </div>
+                            <button onClick={() => setMobileMenuOpen(false)} className="p-2">
+                                <X size={24} className="text-white" />
+                            </button>
+                        </div>
+                        <nav className="flex-1 flex flex-col space-y-6">
+                            <Link href="/usecases" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Use Cases</Link>
+                            <Link href="/features" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Features</Link>
+                            <a href="#" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
+                            <a href="#" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
+                        </nav>
+                        <div className="space-y-4 pt-8 border-t border-white/10">
+                            <button className="w-full text-lg font-medium text-[#8a8a8a] hover:text-white py-3">Sign in</button>
+                            <Link href="/showcase" onClick={() => setMobileMenuOpen(false)} className="btn-primary w-full text-lg py-4">Get Started</Link>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-4 sm:px-6 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <div className="flex items-center space-x-12">
+                    <div className="flex items-center space-x-6 lg:space-x-12">
                         <div className="flex items-center space-x-2.5">
                             <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                                 <div className="w-4 h-4 bg-black rounded-sm"></div>
                             </div>
-                            <Link href="/" className="font-bold text-xl tracking-tight text-white">ProactAI</Link>
+                            <Link href="/" className="font-bold text-lg sm:text-xl tracking-tight text-white">ProactAI</Link>
                         </div>
                         <div className="hidden lg:flex items-center space-x-8">
                             <Link href="/usecases" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Use Cases</Link>
@@ -196,53 +238,57 @@ export default function Home() {
                             <a href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
                         </div>
                     </div>
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-3 sm:space-x-4">
                         <button className="hidden sm:block text-sm font-medium text-[#8a8a8a] hover:text-white">Sign in</button>
-                        <Link href="/showcase" className="btn-primary text-sm px-6 py-2.5">Get Started</Link>
+                        <Link href="/showcase" className="btn-primary text-sm px-4 sm:px-6 py-2.5 hidden sm:flex">Get Started</Link>
+                        <button onClick={() => setMobileMenuOpen(true)} className="lg:hidden p-2">
+                            <Menu size={24} className="text-white" />
+                        </button>
                     </div>
                 </div>
             </nav>
 
-            <section className="relative pt-48 pb-32 px-6">
+            <section className="relative pt-32 sm:pt-48 pb-16 sm:pb-32 px-4 sm:px-6">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col items-center text-center space-y-8">
+                    <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
                         <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/[0.03] border border-white/[0.08] rounded-full">
-                            <span className="text-[11px] font-bold tracking-wider uppercase text-white/60">New</span>
+                            <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-white/60">New</span>
                             <div className="w-[1px] h-3 bg-white/10"></div>
-                            <span className="text-[11px] font-medium text-white/80">Autonomous workflows are here</span>
+                            <span className="text-[10px] sm:text-[11px] font-medium text-white/80">Autonomous workflows are here</span>
                         </div>
 
-                        <h1 className="text-6xl md:text-8xl font-bold tracking-tight max-w-5xl leading-[1.05]">
-                            The future of <br /> work is <span className="text-[#8a8a8a]">autonomous</span>
+                        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight max-w-5xl leading-[1.1] sm:leading-[1.05]">
+                            The future of <br className="hidden sm:block" /><span className="sm:hidden"> </span>work is <span className="text-[#8a8a8a]">autonomous</span>
                         </h1>
 
-                        <p className="text-lg md:text-xl text-[#8a8a8a] max-w-2xl font-medium leading-relaxed">
+                        <p className="text-base sm:text-lg md:text-xl text-[#8a8a8a] max-w-2xl font-medium leading-relaxed px-2">
                             Hire AI employees that don't just chat—they execute. Integrate directly with your tech stack and automate complex workflows.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-center gap-4 pt-6">
-                            <Link href="/showcase" className="btn-primary w-full sm:w-auto text-base px-10 py-4 flex items-center justify-center space-x-2">
+                        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4 sm:pt-6 w-full sm:w-auto">
+                            <Link href="/showcase" className="btn-primary w-full sm:w-auto text-base px-8 sm:px-10 py-4 flex items-center justify-center space-x-2">
                                 <span>Hire your first AI</span>
                                 <ArrowRight size={18} />
                             </Link>
-                            <button className="btn-secondary w-full sm:w-auto text-base px-10 py-4">View Templates</button>
+                            <button className="btn-secondary w-full sm:w-auto text-base px-8 sm:px-10 py-4">View Templates</button>
                         </div>
                     </div>
 
-                    <div className="mt-32 bento-card p-1 overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.05)]">
-                        <div className="bg-[#050505] rounded-[22px] overflow-hidden border border-white/[0.03] p-10">
+                    {/* Preview mockup - hidden on small mobile, simplified on tablet */}
+                    <div className="mt-16 sm:mt-32 bento-card p-1 overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.05)] hidden sm:block">
+                        <div className="bg-[#050505] rounded-[16px] sm:rounded-[22px] overflow-hidden border border-white/[0.03] p-4 sm:p-10">
                             <div className="max-w-5xl mx-auto">
-                                <div className="flex items-center justify-between mb-8 opacity-60 pointer-events-none scale-[0.9]">
-                                    <div className="flex items-center gap-4">
-                                        <div className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm">Open Chat</div>
-                                        <div className="bg-white/5 border border-white/10 px-6 py-3 rounded-full font-bold text-sm">View Tasks</div>
+                                <div className="flex items-center justify-between mb-4 sm:mb-8 opacity-60 pointer-events-none scale-[0.95] sm:scale-[0.9]">
+                                    <div className="flex items-center gap-2 sm:gap-4">
+                                        <div className="bg-white text-black px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-sm">Open Chat</div>
+                                        <div className="bg-white/5 border border-white/10 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-sm hidden md:block">View Tasks</div>
                                     </div>
-                                    <div className="flex gap-4">
-                                        <div className="w-10 h-10 rounded-xl bg-white/5"></div>
-                                        <div className="w-10 h-10 rounded-xl bg-white/5"></div>
+                                    <div className="flex gap-2 sm:gap-4">
+                                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/5"></div>
+                                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/5"></div>
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-4 gap-4 opacity-80 grayscale pointer-events-none scale-[0.9]">
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 opacity-80 grayscale pointer-events-none scale-[0.95] sm:scale-[0.9]">
                                     {[1, 2, 3, 4].map(i => (
                                         <div key={i} className="bg-white/5 border border-white/10 rounded-3xl h-32"></div>
                                     ))}

@@ -40,31 +40,31 @@ const FeatureDetail = ({
     imageContent?: React.ReactNode
 }) => (
     <div className="group relative">
-        <div className={`absolute -inset-1 bg-gradient-to-r ${colorClasses} rounded-[40px] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200`}></div>
-        <div className="relative bg-[#080808] border border-white/[0.08] rounded-[32px] p-8 md:p-12 overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="space-y-8">
-                    <div className="inline-flex items-center space-x-3 px-4 py-1.5 bg-white/[0.03] border border-white/[0.08] rounded-full">
-                        <Icon size={18} className="text-white" />
-                        <span className="text-[11px] font-bold tracking-widest uppercase text-white/80">{title}</span>
+        <div className={`absolute -inset-1 bg-gradient-to-r ${colorClasses} rounded-[24px] sm:rounded-[40px] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200`}></div>
+        <div className="relative bg-[#080808] border border-white/[0.08] rounded-[20px] sm:rounded-[32px] p-5 sm:p-8 md:p-12 overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div className="space-y-6 sm:space-y-8">
+                    <div className="inline-flex items-center space-x-2 sm:space-x-3 px-3 sm:px-4 py-1.5 bg-white/[0.03] border border-white/[0.08] rounded-full">
+                        <Icon size={16} className="text-white sm:w-[18px] sm:h-[18px]" />
+                        <span className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-white/80">{title}</span>
                     </div>
 
-                    <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.1]">
+                    <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-[1.1]">
                         {description}
                     </h3>
 
-                    <ul className="space-y-4">
+                    <ul className="space-y-3 sm:space-y-4">
                         {details.map((detail, i) => (
                             <li key={i} className="flex items-start space-x-3 group/item">
                                 <div className="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-white/20 group-hover/item:bg-white/60 transition-colors"></div>
-                                <p className="text-[#8a8a8a] font-medium leading-relaxed group-hover/item:text-white/80 transition-colors">
+                                <p className="text-sm sm:text-base text-[#8a8a8a] font-medium leading-relaxed group-hover/item:text-white/80 transition-colors">
                                     {detail}
                                 </p>
                             </li>
                         ))}
                     </ul>
 
-                    <div className="pt-4">
+                    <div className="pt-2 sm:pt-4">
                         <button className="flex items-center space-x-2 text-sm font-bold text-white group-hover:translate-x-1 transition-transform">
                             <span>Learn more about {title}</span>
                             <ArrowRight size={16} />
@@ -72,7 +72,7 @@ const FeatureDetail = ({
                     </div>
                 </div>
 
-                <div className="relative h-[400px] w-full bg-[#050505] border border-white/[0.05] rounded-3xl overflow-hidden shadow-2xl">
+                <div className="relative h-[280px] sm:h-[400px] w-full bg-[#050505] border border-white/[0.05] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none"></div>
                     {imageContent || (
                         <div className="flex items-center justify-center h-full">
@@ -92,31 +92,31 @@ const Features = () => {
     return (
         <div className="min-h-screen bg-[#030303] text-white">
             {/* Header */}
-            <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-6 py-4">
+            <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-4 sm:px-6 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <Link href="/" className="flex items-center space-x-2.5 group">
-                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <div className="w-4 h-4 bg-black rounded-sm"></div>
+                    <Link href="/" className="flex items-center space-x-2 sm:space-x-2.5 group">
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-black rounded-sm"></div>
                         </div>
-                        <span className="font-bold text-xl tracking-tight text-white">ProactAI</span>
+                        <span className="font-bold text-lg sm:text-xl tracking-tight text-white">ProactAI</span>
                     </Link>
-                    <div className="flex items-center space-x-4">
-                        <Link href="/" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Back to Home</Link>
-                        <Link href="/showcase" className="btn-primary text-sm px-6 py-2.5">Get Started</Link>
+                    <div className="flex items-center space-x-2 sm:space-x-4">
+                        <Link href="/" className="text-xs sm:text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors hidden sm:block">Back to Home</Link>
+                        <Link href="/showcase" className="btn-primary text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5">Get Started</Link>
                     </div>
                 </div>
             </nav>
 
-            <main className="pt-40 pb-32 px-6">
+            <main className="pt-28 sm:pt-40 pb-16 sm:pb-32 px-4 sm:px-6">
                 <div className="max-w-7xl mx-auto">
                     {/* Hero Section */}
-                    <div className="text-center mb-32 space-y-6">
+                    <div className="text-center mb-16 sm:mb-32 space-y-4 sm:space-y-6">
                         <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/[0.03] border border-white/[0.08] rounded-full">
                             <Sparkles size={12} className="text-indigo-400" />
-                            <span className="text-[11px] font-bold tracking-wider uppercase text-indigo-400">Capabilities Deep Dive</span>
+                            <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-indigo-400">Capabilities Deep Dive</span>
                         </div>
-                        <h1 className="text-5xl md:text-8xl font-bold tracking-tight">
-                            Everything your <br /><span className="text-[#8a8a8a]">business needs.</span>
+                        <h1 className="text-3xl sm:text-5xl md:text-8xl font-bold tracking-tight">
+                            Everything your <br className="hidden sm:block" /><span className="text-[#8a8a8a]">business needs.</span>
                         </h1>
                         <p className="text-lg md:text-xl text-[#8a8a8a] max-w-3xl mx-auto font-medium leading-relaxed">
                             We've re-imagined core business software from the ground up to be autonomous first.

@@ -185,15 +185,15 @@ const ALL_USE_CASES: UseCase[] = [
 ];
 
 const UseCaseCard = ({ uc }: { uc: UseCase }) => (
-    <div className="bg-[#0d0d0d] border border-white/[0.08] rounded-[32px] p-8 flex flex-col space-y-6 hover:border-white/20 transition-all group">
+    <div className="bg-[#0d0d0d] border border-white/[0.08] rounded-[20px] sm:rounded-[32px] p-5 sm:p-8 flex flex-col space-y-4 sm:space-y-6 hover:border-white/20 transition-all group">
         <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden border border-white/10 group-hover:scale-110 transition-transform">
+            <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-white/10 group-hover:scale-110 transition-transform">
                     <img src={uc.avatar} alt={uc.handle} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex flex-col">
-                    <span className="text-red-400 font-bold text-lg">{uc.handle}</span>
-                    <div className="flex items-center gap-2 text-[#555] text-xs font-bold uppercase tracking-widest">
+                    <span className="text-red-400 font-bold text-base sm:text-lg">{uc.handle}</span>
+                    <div className="flex items-center gap-2 text-[#555] text-[10px] sm:text-xs font-bold uppercase tracking-widest">
                         <Zap size={10} className="text-yellow-500/50" />
                         <span>{uc.tag}</span>
                     </div>
@@ -206,11 +206,11 @@ const UseCaseCard = ({ uc }: { uc: UseCase }) => (
         </div>
 
         <div className="flex-1 space-y-2">
-            <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mb-4">Active Tasks:</p>
-            <ul className="space-y-3">
+            <p className="text-white/40 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-3 sm:mb-4">Active Tasks:</p>
+            <ul className="space-y-2 sm:space-y-3">
                 {uc.tasks.map((task, ti) => (
-                    <li key={ti} className="flex items-start gap-3 text-[#8a8a8a] text-sm leading-relaxed group-hover:text-white/80 transition-colors">
-                        <span className="text-white/20 mt-1.5 shrink-0">•</span>
+                    <li key={ti} className="flex items-start gap-2 sm:gap-3 text-[#8a8a8a] text-xs sm:text-sm leading-relaxed group-hover:text-white/80 transition-colors">
+                        <span className="text-white/20 mt-1 sm:mt-1.5 shrink-0">•</span>
                         <span>{task}</span>
                     </li>
                 ))}
@@ -223,42 +223,42 @@ const Usecases = () => {
     return (
         <div className="min-h-screen bg-[#030303] text-white">
             {/* Navigation */}
-            <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-6 py-4">
+            <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-4 sm:px-6 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <Link href="/" className="flex items-center space-x-2.5 group">
-                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <div className="w-4 h-4 bg-black rounded-sm"></div>
+                    <Link href="/" className="flex items-center space-x-2 sm:space-x-2.5 group">
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-black rounded-sm"></div>
                         </div>
-                        <span className="font-bold text-xl tracking-tight text-white">ProactAI</span>
+                        <span className="font-bold text-lg sm:text-xl tracking-tight text-white">ProactAI</span>
                     </Link>
-                    <div className="flex items-center space-x-6">
-                        <Link href="/" className="text-sm font-medium text-[#8a8a8a] hover:text-white flex items-center gap-2">
+                    <div className="flex items-center space-x-2 sm:space-x-6">
+                        <Link href="/" className="text-xs sm:text-sm font-medium text-[#8a8a8a] hover:text-white flex items-center gap-1.5 sm:gap-2 hidden sm:flex">
                             <ArrowLeft size={16} />
                             <span>Go Back</span>
                         </Link>
-                        <Link href="/showcase" className="btn-primary text-sm px-6 py-2.5">Hire your first AI</Link>
+                        <Link href="/showcase" className="btn-primary text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5">Hire your first AI</Link>
                     </div>
                 </div>
             </nav>
 
-            <main className="pt-40 pb-32 px-6">
+            <main className="pt-28 sm:pt-40 pb-16 sm:pb-32 px-4 sm:px-6">
                 <div className="max-w-7xl mx-auto">
                     {/* Hero */}
-                    <div className="text-center mb-24 space-y-6">
+                    <div className="text-center mb-12 sm:mb-24 space-y-4 sm:space-y-6">
                         <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/[0.03] border border-white/[0.08] rounded-full">
                             <Zap size={12} className="text-yellow-500" />
-                            <span className="text-[11px] font-bold tracking-wider uppercase text-white/60">Community Recipes</span>
+                            <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-white/60">Community Recipes</span>
                         </div>
-                        <h1 className="text-5xl md:text-8xl font-bold tracking-tight">
-                            1,000+ ways to <br /><span className="text-[#8a8a8a]">automate.</span>
+                        <h1 className="text-3xl sm:text-5xl md:text-8xl font-bold tracking-tight">
+                            1,000+ ways to <br className="hidden sm:block" /><span className="text-[#8a8a8a]">automate.</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-[#8a8a8a] max-w-2xl mx-auto font-medium leading-relaxed">
+                        <p className="text-base sm:text-lg md:text-xl text-[#8a8a8a] max-w-2xl mx-auto font-medium leading-relaxed px-2">
                             Explore how builders, founders, and teams are using ProactAI to replace expensive headcount with autonomous agents.
                         </p>
                     </div>
 
                     {/* Grid of Use Cases */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
                         {ALL_USE_CASES.map((uc, i) => (
                             <div key={i}>
                                 <UseCaseCard uc={uc} />
@@ -267,19 +267,19 @@ const Usecases = () => {
                     </div>
 
                     {/* CTA Section */}
-                    <div className="mt-32 relative group">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-[40px] blur opacity-25"></div>
-                        <div className="relative bg-[#0d0d0d] border border-white/[0.08] rounded-[32px] p-12 text-center space-y-8">
-                            <h2 className="text-3xl md:text-5xl font-bold">Have a unique use case?</h2>
-                            <p className="text-[#8a8a8a] text-lg max-w-xl mx-auto">
+                    <div className="mt-16 sm:mt-32 relative group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-[24px] sm:rounded-[40px] blur opacity-25"></div>
+                        <div className="relative bg-[#0d0d0d] border border-white/[0.08] rounded-[20px] sm:rounded-[32px] p-6 sm:p-12 text-center space-y-6 sm:space-y-8">
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold">Have a unique use case?</h2>
+                            <p className="text-[#8a8a8a] text-sm sm:text-lg max-w-xl mx-auto">
                                 Our SDK allows you to build custom agents for any task, connected to any API in your stack.
                             </p>
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <button className="btn-primary px-10 py-4 flex items-center gap-2">
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                                <button className="btn-primary px-8 sm:px-10 py-3 sm:py-4 flex items-center gap-2 w-full sm:w-auto justify-center">
                                     <Plus size={18} />
                                     <span>Create Custom Agent</span>
                                 </button>
-                                <button className="btn-secondary px-10 py-4">Read Documentation</button>
+                                <button className="btn-secondary px-8 sm:px-10 py-3 sm:py-4 w-full sm:w-auto">Read Documentation</button>
                             </div>
                         </div>
                     </div>
@@ -287,15 +287,15 @@ const Usecases = () => {
             </main>
 
             {/* Footer */}
-            <footer className="py-20 px-6 border-t border-white/[0.05]">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <footer className="py-10 sm:py-20 px-4 sm:px-6 border-t border-white/[0.05]">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-10">
                     <div className="flex items-center space-x-2.5">
                         <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
                             <div className="w-3 h-3 bg-black rounded-sm"></div>
                         </div>
                         <span className="font-bold tracking-tight">ProactAI</span>
                     </div>
-                    <div className="text-sm text-[#555]">© 2024 Proact Labs Inc. Verified Autonomous Platform.</div>
+                    <div className="text-xs sm:text-sm text-[#555] text-center">© 2024 Proact Labs Inc. Verified Autonomous Platform.</div>
                 </div>
             </footer>
         </div>
