@@ -236,7 +236,7 @@ const Usecases = () => {
                             <ArrowLeft size={16} />
                             <span>Go Back</span>
                         </Link>
-                        <Link href="/showcase" className="btn-primary text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5">Hire your first AI</Link>
+                        <a href="https://clawbot-fi5p.onrender.com/signup" className="btn-primary text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5">Hire your first AI</a>
                     </div>
                 </div>
             </nav>

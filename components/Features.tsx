@@ -102,7 +102,7 @@ const Features = () => {
                     </Link>
                     <div className="flex items-center space-x-2 sm:space-x-4">
                         <Link href="/" className="text-xs sm:text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors hidden sm:block">Back to Home</Link>
-                        <Link href="/showcase" className="btn-primary text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5">Get Started</Link>
+                        <a href="https://clawbot-fi5p.onrender.com/signup" className="btn-primary text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5">Get Started</a>
                     </div>
                 </div>
             </nav>

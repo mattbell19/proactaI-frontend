@@ -216,7 +216,7 @@ export default function Home() {
                         </nav>
                         <div className="space-y-4 pt-8 border-t border-white/10">
                             <button className="w-full text-lg font-medium text-[#8a8a8a] hover:text-white py-3">Sign in</button>
-                            <Link href="/showcase" onClick={() => setMobileMenuOpen(false)} className="btn-primary w-full text-lg py-4">Get Started</Link>
+                            <a href="https://clawbot-fi5p.onrender.com/signup" onClick={() => setMobileMenuOpen(false)} className="btn-primary w-full text-lg py-4">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -240,7 +240,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center space-x-3 sm:space-x-4">
                         <button className="hidden sm:block text-sm font-medium text-[#8a8a8a] hover:text-white">Sign in</button>
-                        <Link href="/showcase" className="btn-primary text-sm px-4 sm:px-6 py-2.5 hidden sm:flex">Get Started</Link>
+                        <a href="https://clawbot-fi5p.onrender.com/signup" className="btn-primary text-sm px-4 sm:px-6 py-2.5 hidden sm:flex">Get Started</a>
                         <button onClick={() => setMobileMenuOpen(true)} className="lg:hidden p-2">
                             <Menu size={24} className="text-white" />
                         </button>
@@ -266,10 +266,10 @@ export default function Home() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4 sm:pt-6 w-full sm:w-auto">
-                            <Link href="/showcase" className="btn-primary w-full sm:w-auto text-base px-8 sm:px-10 py-4 flex items-center justify-center space-x-2">
+                            <a href="https://clawbot-fi5p.onrender.com/signup" className="btn-primary w-full sm:w-auto text-base px-8 sm:px-10 py-4 flex items-center justify-center space-x-2">
                                 <span>Hire your first AI</span>
                                 <ArrowRight size={18} />
-                            </Link>
+                            </a>
                             <button className="btn-secondary w-full sm:w-auto text-base px-8 sm:px-10 py-4">View Templates</button>
                         </div>
                     </div>
@@ -667,7 +667,7 @@ export default function Home() {
                 <div className="max-w-4xl mx-auto space-y-12">
                     <h2 className="text-5xl md:text-7xl font-bold tracking-tight">Scale your team, <br /><span className="text-[#8a8a8a]">not your headcount</span></h2>
                     <div className="flex justify-center">
-                        <Link href="/showcase" className="btn-primary text-xl px-12 py-5">Get Started Free</Link>
+                        <a href="https://clawbot-fi5p.onrender.com/signup" className="btn-primary text-xl px-12 py-5">Get Started Free</a>
                     </div>
                 </div>
             </section>
