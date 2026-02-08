@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import {
     Plus,
     ArrowRight,
@@ -45,11 +46,6 @@ import {
     ChevronLeft,
     ChevronRight
 } from 'lucide-react';
-import Marketplace from '../components/Marketplace';
-import Dashboard from '../components/Dashboard';
-import Features from '../components/Features';
-import Usecases from '../components/Usecases';
-import { AppState } from '../types';
 
 const roles = ["SDR", "Recruiter", "Support", "Analyst", "Assistant"];
 
@@ -163,7 +159,7 @@ const FeatureShowcase = ({ icon: Icon, title, description, badge, preview }: { i
     </div>
 );
 
-const LandingPage = ({ onStart, onViewFeatures, onViewUsecases }: { onStart: () => void, onViewFeatures: () => void, onViewUsecases: () => void }) => {
+export default function Home() {
     const [roleIndex, setRoleIndex] = useState(0);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -191,18 +187,18 @@ const LandingPage = ({ onStart, onViewFeatures, onViewUsecases }: { onStart: () 
                             <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                                 <div className="w-4 h-4 bg-black rounded-sm"></div>
                             </div>
-                            <button onClick={() => window.scrollTo({ top: 0 })} className="font-bold text-xl tracking-tight text-white">ProactAI</button>
+                            <Link href="/" className="font-bold text-xl tracking-tight text-white">ProactAI</Link>
                         </div>
                         <div className="hidden lg:flex items-center space-x-8">
-                            <button onClick={onViewUsecases} className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Use Cases</button>
-                            <button onClick={onViewFeatures} className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Features</button>
+                            <Link href="/usecases" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Use Cases</Link>
+                            <Link href="/features" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Features</Link>
                             <a href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
                             <a href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
                         </div>
                     </div>
                     <div className="flex items-center space-x-4">
                         <button className="hidden sm:block text-sm font-medium text-[#8a8a8a] hover:text-white">Sign in</button>
-                        <button onClick={onStart} className="btn-primary text-sm px-6 py-2.5">Get Started</button>
+                        <Link href="/showcase" className="btn-primary text-sm px-6 py-2.5">Get Started</Link>
                     </div>
                 </div>
             </nav>
@@ -225,10 +221,10 @@ const LandingPage = ({ onStart, onViewFeatures, onViewUsecases }: { onStart: () 
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-4 pt-6">
-                            <button onClick={onStart} className="btn-primary w-full sm:w-auto text-base px-10 py-4 flex items-center justify-center space-x-2">
+                            <Link href="/showcase" className="btn-primary w-full sm:w-auto text-base px-10 py-4 flex items-center justify-center space-x-2">
                                 <span>Hire your first AI</span>
                                 <ArrowRight size={18} />
-                            </button>
+                            </Link>
                             <button className="btn-secondary w-full sm:w-auto text-base px-10 py-4">View Templates</button>
                         </div>
                     </div>
@@ -271,10 +267,10 @@ const LandingPage = ({ onStart, onViewFeatures, onViewUsecases }: { onStart: () 
                         </div>
                         <p className="text-[#8a8a8a] text-xl font-medium">Real projects, real automation, real magic.</p>
                         <div className="flex justify-center pt-2">
-                            <button onClick={onViewUsecases} className="flex items-center space-x-2 text-sm font-bold text-white hover:text-red-400 transition-colors group">
+                            <Link href="/usecases" className="flex items-center space-x-2 text-sm font-bold text-white hover:text-red-400 transition-colors group">
                                 <span>View all 1,000+ examples</span>
                                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -348,10 +344,10 @@ const LandingPage = ({ onStart, onViewFeatures, onViewUsecases }: { onStart: () 
                                 ProactAI agents come equipped with a full suite of business tools. They manage your docs, populate your CRM, and move tasks on your board.
                             </p>
                         </div>
-                        <button onClick={onViewFeatures} className="btn-secondary flex items-center space-x-2 group">
+                        <Link href="/features" className="btn-secondary flex items-center space-x-2 group">
                             <span>Explore all features</span>
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -625,7 +621,7 @@ const LandingPage = ({ onStart, onViewFeatures, onViewUsecases }: { onStart: () 
                 <div className="max-w-4xl mx-auto space-y-12">
                     <h2 className="text-5xl md:text-7xl font-bold tracking-tight">Scale your team, <br /><span className="text-[#8a8a8a]">not your headcount</span></h2>
                     <div className="flex justify-center">
-                        <button onClick={onStart} className="btn-primary text-xl px-12 py-5">Get Started Free</button>
+                        <Link href="/showcase" className="btn-primary text-xl px-12 py-5">Get Started Free</Link>
                     </div>
                 </div>
             </section>
@@ -647,119 +643,5 @@ const LandingPage = ({ onStart, onViewFeatures, onViewUsecases }: { onStart: () 
                 </div>
             </footer>
         </div>
-    );
-};
-
-const MainApp = ({ onBack }: { onBack: () => void }) => {
-    const [activeView, setActiveView] = useState('dashboard');
-
-    const navItems = [
-        { id: 'dashboard', icon: LayoutDashboard, label: 'Overview' },
-        { id: 'crm', icon: Database, label: 'CRM' },
-        { id: 'chats', icon: MessageSquare, label: 'Chat' },
-        { id: 'tables', icon: Table, label: 'Tables' },
-        { id: 'tasks', icon: CheckSquare, label: 'Tasks' },
-        { id: 'documents', icon: FileText, label: 'Documents' },
-        { id: 'settings', icon: Settings, label: 'Settings' },
-    ];
-
-    return (
-        <div className="flex h-screen bg-[#030303] text-white overflow-hidden">
-            {/* App Sidebar */}
-            <aside className="w-[300px] border-r border-white/[0.04] flex flex-col p-6 bg-[#000000]">
-                <div className="mb-8 px-2">
-                    <span className="text-[10px] font-bold text-[#444] uppercase tracking-[0.2em]">Navigation</span>
-                </div>
-
-                <nav className="flex-1 space-y-2">
-                    {navItems.map(item => (
-                        <button
-                            key={item.id}
-                            onClick={() => setActiveView(item.id)}
-                            className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all font-semibold text-sm ${activeView === item.id
-                                ? 'bg-white text-black'
-                                : 'text-[#8a8a8a] hover:text-white hover:bg-white/[0.03]'
-                                }`}
-                        >
-                            <div className="flex items-center space-x-3">
-                                <item.icon size={18} />
-                                <span>{item.label}</span>
-                            </div>
-                            {activeView === item.id && <div className="w-1 h-1 bg-black rounded-full"></div>}
-                        </button>
-                    ))}
-                </nav>
-
-                <div className="pt-6 border-t border-white/[0.04] space-y-6">
-                    <div className="bg-white/[0.03] border border-white/[0.06] rounded-[24px] p-4 flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center font-bold text-sm">
-                            B
-                        </div>
-                        <div className="flex-1 overflow-hidden">
-                            <p className="text-sm font-bold truncate">bbbbb@gmail.com</p>
-                            <div className="flex items-center gap-1.5 mt-0.5">
-                                <Globe size={10} className="text-emerald-500" />
-                                <span className="text-[9px] font-bold text-[#555] uppercase tracking-wider">Verified Session</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button onClick={onBack} className="w-full flex items-center space-x-3 px-4 py-2 text-[#444] hover:text-white text-xs font-bold uppercase tracking-widest transition-colors">
-                        <LogOut size={16} />
-                        <span>Disconnect</span>
-                    </button>
-                </div>
-            </aside>
-
-            {/* Main Container */}
-            <main className="flex-1 flex flex-col overflow-hidden bg-[#030303] relative">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
-
-                <div className="flex-1 overflow-y-auto relative z-10">
-                    <div className="max-w-6xl mx-auto p-12">
-                        {activeView === 'dashboard' && <Dashboard />}
-                        {activeView === 'marketplace' && <Marketplace onAddAgent={() => setActiveView('chats')} />}
-                        {!['dashboard', 'marketplace'].includes(activeView) && (
-                            <div className="h-full flex items-center justify-center py-32">
-                                <div className="text-center space-y-6 max-w-sm">
-                                    <div className="w-16 h-16 bg-white/[0.03] border border-white/[0.06] rounded-2xl mx-auto flex items-center justify-center text-[#555]">
-                                        <Layers size={32} />
-                                    </div>
-                                    <h2 className="text-2xl font-bold tracking-tight">{navItems.find(n => n.id === activeView)?.label} Empty</h2>
-                                    <p className="text-[#8a8a8a] font-medium leading-relaxed">
-                                        This section is currently being provisioned for your AI workforce.
-                                    </p>
-                                    <button onClick={() => setActiveView('dashboard')} className="btn-primary">Return to Overview</button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </main>
-        </div>
-    );
-};
-
-export default function Home() {
-    const [currentView, setCurrentView] = useState<'landing' | 'app' | 'features' | 'usecases'>('landing');
-
-    if (currentView === 'app') {
-        return <MainApp onBack={() => setCurrentView('landing')} />;
-    }
-
-    if (currentView === 'features') {
-        return <Features onBack={() => setCurrentView('landing')} />;
-    }
-
-    if (currentView === 'usecases') {
-        return <Usecases onBack={() => setCurrentView('landing')} />;
-    }
-
-    return (
-        <LandingPage
-            onStart={() => setCurrentView('app')}
-            onViewFeatures={() => setCurrentView('features')}
-            onViewUsecases={() => setCurrentView('usecases')}
-        />
     );
 }

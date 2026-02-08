@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Link from 'next/link';
 import {
     FileText,
     Table,
@@ -87,21 +88,21 @@ const FeatureDetail = ({
     </div>
 );
 
-const Features = ({ onBack }: { onBack: () => void }) => {
+const Features = () => {
     return (
         <div className="min-h-screen bg-[#030303] text-white">
             {/* Header */}
             <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-6 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <button onClick={onBack} className="flex items-center space-x-2.5 group">
+                    <Link href="/" className="flex items-center space-x-2.5 group">
                         <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                             <div className="w-4 h-4 bg-black rounded-sm"></div>
                         </div>
                         <span className="font-bold text-xl tracking-tight text-white">ProactAI</span>
-                    </button>
+                    </Link>
                     <div className="flex items-center space-x-4">
-                        <button onClick={onBack} className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Back to Home</button>
-                        <button className="btn-primary text-sm px-6 py-2.5">Get Started</button>
+                        <Link href="/" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Back to Home</Link>
+                        <Link href="/showcase" className="btn-primary text-sm px-6 py-2.5">Get Started</Link>
                     </div>
                 </div>
             </nav>
