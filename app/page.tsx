@@ -272,6 +272,34 @@ export default function Home() {
                             </a>
                             <button className="btn-secondary w-full sm:w-auto text-base px-8 sm:px-10 py-4">View Templates</button>
                         </div>
+
+                        {/* Powered by OpenClaw */}
+                        <a
+                            href="https://openclaw.ai"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 mt-6 px-4 py-2 bg-white/[0.02] border border-white/[0.06] rounded-full hover:bg-white/[0.05] hover:border-white/[0.1] transition-all group"
+                        >
+                            {/* OpenClaw Lobster/Claw Icon */}
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="text-red-500 group-hover:scale-110 transition-transform"
+                            >
+                                <path
+                                    d="M12 2C10.5 2 9 3 8.5 4.5C7.5 4 6 4.5 5.5 5.5C5 6.5 5.5 7.5 6 8C5 8.5 4.5 9.5 5 10.5C5.5 11.5 6.5 12 7.5 11.5L9 14V18C9 19.5 10 21 12 21C14 21 15 19.5 15 18V14L16.5 11.5C17.5 12 18.5 11.5 19 10.5C19.5 9.5 19 8.5 18 8C18.5 7.5 19 6.5 18.5 5.5C18 4.5 16.5 4 15.5 4.5C15 3 13.5 2 12 2Z"
+                                    fill="currentColor"
+                                />
+                                <circle cx="10" cy="7" r="1" fill="#030303" />
+                                <circle cx="14" cy="7" r="1" fill="#030303" />
+                            </svg>
+                            <span className="text-[11px] sm:text-xs font-medium text-white/60 group-hover:text-white/80 transition-colors">
+                                Powered by <span className="font-bold text-white/80 group-hover:text-white">OpenClaw</span>
+                            </span>
+                        </a>
                     </div>
 
                     {/* Preview mockup - hidden on small mobile, simplified on tablet */}
