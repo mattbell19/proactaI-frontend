@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  Plus, 
-  ArrowRight, 
-  CheckCircle2, 
-  Users, 
-  Zap, 
-  MessageSquare, 
-  Calendar, 
-  Mail, 
-  Globe, 
+import {
+  Plus,
+  ArrowRight,
+  CheckCircle2,
+  Users,
+  Zap,
+  MessageSquare,
+  Calendar,
+  Mail,
+  Globe,
   ShieldCheck,
   Menu,
   X,
@@ -46,6 +46,8 @@ import {
 } from 'lucide-react';
 import Marketplace from './components/Marketplace';
 import Dashboard from './components/Dashboard';
+import Features from './components/Features';
+import Usecases from './components/Usecases';
 import { AppState } from './types';
 
 const roles = ["SDR", "Recruiter", "Support", "Analyst", "Assistant"];
@@ -160,7 +162,7 @@ const FeatureShowcase = ({ icon: Icon, title, description, badge, preview }: { i
   </div>
 );
 
-const LandingPage = ({ onStart }: { onStart: () => void }) => {
+const LandingPage = ({ onStart, onViewFeatures, onViewUsecases }: { onStart: () => void, onViewFeatures: () => void, onViewUsecases: () => void }) => {
   const [roleIndex, setRoleIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -181,8 +183,8 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
 
   return (
     <div className="relative">
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
-           style={{ backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`, backgroundSize: '40px 40px' }}></div>
+      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
+        style={{ backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`, backgroundSize: '40px 40px' }}></div>
 
       <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -191,12 +193,13 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
               <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                 <div className="w-4 h-4 bg-black rounded-sm"></div>
               </div>
-              <span className="font-bold text-xl tracking-tight text-white">ProactAI</span>
+              <button onClick={() => window.scrollTo({ top: 0 })} className="font-bold text-xl tracking-tight text-white">ProactAI</button>
             </div>
             <div className="hidden lg:flex items-center space-x-8">
-              {['Solutions', 'Features', 'Templates', 'Pricing'].map(link => (
-                <a key={link} href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">{link}</a>
-              ))}
+              <button onClick={onViewUsecases} className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Use Cases</button>
+              <button onClick={onViewFeatures} className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Features</button>
+              <a href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
+              <a href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
             </div>
           </div>
           <div className="flex items-center space-x-4">
@@ -214,11 +217,11 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
               <div className="w-[1px] h-3 bg-white/10"></div>
               <span className="text-[11px] font-medium text-white/80">Autonomous workflows are here</span>
             </div>
-            
+
             <h1 className="text-6xl md:text-8xl font-bold tracking-tight max-w-5xl leading-[1.05]">
               The future of <br /> work is <span className="text-[#8a8a8a]">autonomous</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-[#8a8a8a] max-w-2xl font-medium leading-relaxed">
               Hire AI employees that don't just chat—they execute. Integrate directly with your tech stack and automate complex workflows.
             </p>
@@ -234,27 +237,27 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
 
           <div className="mt-32 bento-card p-1 overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.05)]">
             <div className="bg-[#050505] rounded-[22px] overflow-hidden border border-white/[0.03] p-10">
-               <div className="max-w-5xl mx-auto">
-                  <div className="flex items-center justify-between mb-8 opacity-60 pointer-events-none scale-[0.9]">
-                    <div className="flex items-center gap-4">
-                      <div className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm">Open Chat</div>
-                      <div className="bg-white/5 border border-white/10 px-6 py-3 rounded-full font-bold text-sm">View Tasks</div>
-                    </div>
-                    <div className="flex gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-white/5"></div>
-                      <div className="w-10 h-10 rounded-xl bg-white/5"></div>
-                    </div>
+              <div className="max-w-5xl mx-auto">
+                <div className="flex items-center justify-between mb-8 opacity-60 pointer-events-none scale-[0.9]">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm">Open Chat</div>
+                    <div className="bg-white/5 border border-white/10 px-6 py-3 rounded-full font-bold text-sm">View Tasks</div>
                   </div>
-                  <div className="grid grid-cols-4 gap-4 opacity-80 grayscale pointer-events-none scale-[0.9]">
-                    {[1,2,3,4].map(i => (
-                      <div key={i} className="bg-white/5 border border-white/10 rounded-3xl h-32"></div>
-                    ))}
+                  <div className="flex gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/5"></div>
+                    <div className="w-10 h-10 rounded-xl bg-white/5"></div>
                   </div>
-                  <div className="mt-8 grid grid-cols-12 gap-6 opacity-40 pointer-events-none scale-[0.9]">
-                    <div className="col-span-4 h-64 bg-white/5 border border-white/10 rounded-3xl"></div>
-                    <div className="col-span-8 h-64 bg-white/5 border border-white/10 rounded-3xl"></div>
-                  </div>
-               </div>
+                </div>
+                <div className="grid grid-cols-4 gap-4 opacity-80 grayscale pointer-events-none scale-[0.9]">
+                  {[1, 2, 3, 4].map(i => (
+                    <div key={i} className="bg-white/5 border border-white/10 rounded-3xl h-32"></div>
+                  ))}
+                </div>
+                <div className="mt-8 grid grid-cols-12 gap-6 opacity-40 pointer-events-none scale-[0.9]">
+                  <div className="col-span-4 h-64 bg-white/5 border border-white/10 rounded-3xl"></div>
+                  <div className="col-span-8 h-64 bg-white/5 border border-white/10 rounded-3xl"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -265,34 +268,40 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-6">
             <div className="flex items-center justify-center space-x-4">
-               <span className="text-red-500 text-4xl font-light scale-y-150 origin-bottom leading-none">&gt;</span>
-               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">Use Cases</h2>
+              <span className="text-red-500 text-4xl font-light scale-y-150 origin-bottom leading-none">&gt;</span>
+              <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">Use Cases</h2>
             </div>
             <p className="text-[#8a8a8a] text-xl font-medium">Real projects, real automation, real magic.</p>
+            <div className="flex justify-center pt-2">
+              <button onClick={onViewUsecases} className="flex items-center space-x-2 text-sm font-bold text-white hover:text-red-400 transition-colors group">
+                <span>View all 1,000+ examples</span>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
           </div>
 
           <div className="relative group">
-            <button 
-              onClick={() => scroll('left')} 
+            <button
+              onClick={() => scroll('left')}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-20 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 opacity-0 group-hover:opacity-100 transition-all"
             >
               <ChevronLeft size={24} />
             </button>
-            <button 
-              onClick={() => scroll('right')} 
+            <button
+              onClick={() => scroll('right')}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-20 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 opacity-0 group-hover:opacity-100 transition-all"
             >
               <ChevronRight size={24} />
             </button>
 
-            <div 
+            <div
               ref={scrollContainerRef}
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 px-4"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {USE_CASES.map((uc, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className="snap-center shrink-0 w-full md:w-[450px] bg-[#0d0d0d] border border-white/[0.08] rounded-[32px] p-8 flex flex-col space-y-6 hover:border-white/20 transition-all"
                 >
                   <div className="flex items-center justify-between">
@@ -335,15 +344,21 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
       {/* Capabilities Section */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-20 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Your AI doesn't just chat. <br /><span className="text-[#8a8a8a]">It does the work.</span></h2>
-            <p className="text-lg text-[#8a8a8a] font-medium max-w-2xl leading-relaxed">
-              ProactAI agents come equipped with a full suite of business tools. They manage your docs, populate your CRM, and move tasks on your board.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Your AI doesn't just chat. <br /><span className="text-[#8a8a8a]">It does the work.</span></h2>
+              <p className="text-lg text-[#8a8a8a] font-medium max-w-2xl leading-relaxed">
+                ProactAI agents come equipped with a full suite of business tools. They manage your docs, populate your CRM, and move tasks on your board.
+              </p>
+            </div>
+            <button onClick={onViewFeatures} className="btn-secondary flex items-center space-x-2 group">
+              <span>Explore all features</span>
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <FeatureShowcase 
+            <FeatureShowcase
               icon={FileText}
               title="Docs"
               badge="Self-Authoring"
@@ -359,55 +374,55 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
                     <div className="h-2 w-full bg-white/10 rounded"></div>
                     <div className="h-2 w-5/6 bg-white/10 rounded"></div>
                     <div className="flex items-center gap-2 pt-4">
-                       <Sparkles size={10} className="text-indigo-400 animate-pulse" />
-                       <span className="text-indigo-400">Agent updating section 4.2 based on recent CRM data...</span>
+                      <Sparkles size={10} className="text-indigo-400 animate-pulse" />
+                      <span className="text-indigo-400">Agent updating section 4.2 based on recent CRM data...</span>
                     </div>
                   </div>
                 </div>
               }
             />
-            <FeatureShowcase 
+            <FeatureShowcase
               icon={Table}
               title="Tables"
               badge="Dynamic Data"
               description="Native spreadsheets and lists. Use your AI to clean data, perform calculations, and maintain structured records with human-level accuracy."
               preview={
                 <div className="p-4 h-full">
-                   <div className="grid grid-cols-3 gap-2 border border-white/10 rounded-lg overflow-hidden h-full">
-                      {[...Array(9)].map((_, i) => (
-                        <div key={i} className="bg-white/[0.03] border border-white/[0.05] p-2 flex items-center justify-center">
-                          <div className={`h-1.5 rounded bg-white/${i % 2 === 0 ? '20' : '10'} w-full`}></div>
-                        </div>
-                      ))}
-                   </div>
+                  <div className="grid grid-cols-3 gap-2 border border-white/10 rounded-lg overflow-hidden h-full">
+                    {[...Array(9)].map((_, i) => (
+                      <div key={i} className="bg-white/[0.03] border border-white/[0.05] p-2 flex items-center justify-center">
+                        <div className={`h-1.5 rounded bg-white/${i % 2 === 0 ? '20' : '10'} w-full`}></div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               }
             />
-            <FeatureShowcase 
+            <FeatureShowcase
               icon={Trello}
               title="Todos"
               badge="Autonomous Board"
               description="A living Kanban board. Your bot doesn't just watch the list—it completes the tasks, moves tickets, and keeps the project moving 24/7."
               preview={
                 <div className="p-4 flex gap-3 overflow-hidden">
-                   {[1, 2].map(col => (
-                     <div key={col} className="w-1/2 bg-white/[0.02] border border-white/5 rounded-lg p-2 space-y-2">
-                        <div className="h-1.5 w-1/2 bg-white/10 rounded mb-4"></div>
-                        <div className="bg-white/[0.05] border border-white/10 p-2 rounded-md space-y-1.5">
-                           <div className="h-1 w-full bg-white/20 rounded"></div>
-                           <div className="h-1 w-2/3 bg-white/10 rounded"></div>
-                           <div className="flex justify-end pt-1">
-                              <div className="w-3 h-3 rounded-full bg-emerald-500/50 flex items-center justify-center">
-                                 <CheckCircle2 size={8} className="text-white" />
-                              </div>
-                           </div>
+                  {[1, 2].map(col => (
+                    <div key={col} className="w-1/2 bg-white/[0.02] border border-white/5 rounded-lg p-2 space-y-2">
+                      <div className="h-1.5 w-1/2 bg-white/10 rounded mb-4"></div>
+                      <div className="bg-white/[0.05] border border-white/10 p-2 rounded-md space-y-1.5">
+                        <div className="h-1 w-full bg-white/20 rounded"></div>
+                        <div className="h-1 w-2/3 bg-white/10 rounded"></div>
+                        <div className="flex justify-end pt-1">
+                          <div className="w-3 h-3 rounded-full bg-emerald-500/50 flex items-center justify-center">
+                            <CheckCircle2 size={8} className="text-white" />
+                          </div>
                         </div>
-                     </div>
-                   ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               }
             />
-            <FeatureShowcase 
+            <FeatureShowcase
               icon={Database}
               title="CRM"
               badge="Sales Agent"
@@ -415,18 +430,18 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
               preview={
                 <div className="p-4">
                   <div className="space-y-3">
-                     <div className="flex items-center justify-between bg-emerald-500/5 border border-emerald-500/10 p-2 rounded-xl">
-                        <div className="flex items-center gap-2">
-                          <Users size={12} className="text-emerald-400" />
-                          <span className="text-[10px] font-bold">New Lead: John Smith</span>
-                        </div>
-                        <span className="text-[8px] bg-emerald-500 text-black font-bold px-1.5 rounded">High Value</span>
-                     </div>
-                     <div className="flex flex-col gap-1.5 pl-4 border-l border-white/10">
-                        <div className="h-1 w-24 bg-white/20 rounded"></div>
-                        <div className="h-1 w-32 bg-white/10 rounded"></div>
-                        <div className="text-[9px] text-indigo-400 font-bold mt-1">Sarah (SDR) sent introduction email.</div>
-                     </div>
+                    <div className="flex items-center justify-between bg-emerald-500/5 border border-emerald-500/10 p-2 rounded-xl">
+                      <div className="flex items-center gap-2">
+                        <Users size={12} className="text-emerald-400" />
+                        <span className="text-[10px] font-bold">New Lead: John Smith</span>
+                      </div>
+                      <span className="text-[8px] bg-emerald-500 text-black font-bold px-1.5 rounded">High Value</span>
+                    </div>
+                    <div className="flex flex-col gap-1.5 pl-4 border-l border-white/10">
+                      <div className="h-1 w-24 bg-white/20 rounded"></div>
+                      <div className="h-1 w-32 bg-white/10 rounded"></div>
+                      <div className="text-[9px] text-indigo-400 font-bold mt-1">Sarah (SDR) sent introduction email.</div>
+                    </div>
                   </div>
                 </div>
               }
@@ -439,13 +454,13 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
       <section className="py-32 px-6 relative overflow-hidden">
         {/* Decorative background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none"></div>
-        
+
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-10">
             <div className="space-y-4">
               <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/[0.03] border border-white/[0.08] rounded-full">
-                 <Cpu size={12} className="text-indigo-400" />
-                 <span className="text-[11px] font-bold tracking-wider uppercase text-indigo-400">Powered by OpenClaw</span>
+                <Cpu size={12} className="text-indigo-400" />
+                <span className="text-[11px] font-bold tracking-wider uppercase text-indigo-400">Powered by OpenClaw</span>
               </div>
               <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Deploy to the cloud <br /><span className="text-[#8a8a8a]">in less than 60s</span></h2>
               <p className="text-[#8a8a8a] text-lg font-medium leading-relaxed">
@@ -454,25 +469,25 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <DeploymentFeature 
-                icon={Cloud} 
-                title="Cloud Native" 
-                description="Zero-config deployment to global edge nodes." 
+              <DeploymentFeature
+                icon={Cloud}
+                title="Cloud Native"
+                description="Zero-config deployment to global edge nodes."
               />
-              <DeploymentFeature 
-                icon={Send} 
-                title="Telegram Direct" 
-                description="Control your agents via secure messaging." 
+              <DeploymentFeature
+                icon={Send}
+                title="Telegram Direct"
+                description="Control your agents via secure messaging."
               />
-              <DeploymentFeature 
-                icon={Lock} 
-                title="Enterprise Secure" 
-                description="End-to-end encryption for all agent workflows." 
+              <DeploymentFeature
+                icon={Lock}
+                title="Enterprise Secure"
+                description="End-to-end encryption for all agent workflows."
               />
-              <DeploymentFeature 
-                icon={Workflow} 
-                title="All-in-one Workspace" 
-                description="Dedicated environment for every AI employee." 
+              <DeploymentFeature
+                icon={Workflow}
+                title="All-in-one Workspace"
+                description="Dedicated environment for every AI employee."
               />
             </div>
           </div>
@@ -507,26 +522,26 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
                 </div>
               </div>
             </div>
-            
+
             {/* Telegram Preview Float */}
             <div className="absolute -bottom-10 -right-6 md:-right-12 bg-[#0d0d0d] border border-white/[0.1] rounded-2xl p-4 shadow-2xl w-64 animate-bounce-slow">
-               <div className="flex items-center space-x-3 mb-3 pb-3 border-b border-white/[0.05]">
-                  <div className="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center">
-                    <Send size={14} className="text-white" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold">Sarah (SDR)</p>
-                    <p className="text-[9px] text-emerald-400 font-bold uppercase">Online</p>
-                  </div>
-               </div>
-               <div className="space-y-2">
-                  <div className="bg-white/[0.05] p-2 rounded-lg text-[10px] text-[#8a8a8a]">
-                    Sarah, what's the status on the Q4 leads?
-                  </div>
-                  <div className="bg-indigo-500/10 p-2 rounded-lg text-[10px] text-indigo-100 border border-indigo-500/20 text-right ml-4">
-                    Processing 128 leads. 4 meetings booked already. Check the workspace dashboard for details.
-                  </div>
-               </div>
+              <div className="flex items-center space-x-3 mb-3 pb-3 border-b border-white/[0.05]">
+                <div className="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center">
+                  <Send size={14} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold">Sarah (SDR)</p>
+                  <p className="text-[9px] text-emerald-400 font-bold uppercase">Online</p>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <div className="bg-white/[0.05] p-2 rounded-lg text-[10px] text-[#8a8a8a]">
+                  Sarah, what's the status on the Q4 leads?
+                </div>
+                <div className="bg-indigo-500/10 p-2 rounded-lg text-[10px] text-indigo-100 border border-indigo-500/20 text-right ml-4">
+                  Processing 128 leads. 4 meetings booked already. Check the workspace dashboard for details.
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -570,7 +585,7 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
                 </p>
               </div>
             </div>
-            
+
             <div className="bento-card p-10 flex flex-col justify-between min-h-[400px]">
               <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-8 border border-white/10">
                 <ShieldCheck className="text-white" size={24} />
@@ -641,7 +656,7 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
 
 const MainApp = ({ onBack }: { onBack: () => void }) => {
   const [activeView, setActiveView] = useState('dashboard');
-  
+
   const navItems = [
     { id: 'dashboard', icon: LayoutDashboard, label: 'Overview' },
     { id: 'crm', icon: Database, label: 'CRM' },
@@ -657,19 +672,18 @@ const MainApp = ({ onBack }: { onBack: () => void }) => {
       {/* App Sidebar */}
       <aside className="w-[300px] border-r border-white/[0.04] flex flex-col p-6 bg-[#000000]">
         <div className="mb-8 px-2">
-           <span className="text-[10px] font-bold text-[#444] uppercase tracking-[0.2em]">Navigation</span>
+          <span className="text-[10px] font-bold text-[#444] uppercase tracking-[0.2em]">Navigation</span>
         </div>
-        
+
         <nav className="flex-1 space-y-2">
           {navItems.map(item => (
-            <button 
+            <button
               key={item.id}
               onClick={() => setActiveView(item.id)}
-              className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all font-semibold text-sm ${
-                activeView === item.id 
-                ? 'bg-white text-black' 
+              className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all font-semibold text-sm ${activeView === item.id
+                ? 'bg-white text-black'
                 : 'text-[#8a8a8a] hover:text-white hover:bg-white/[0.03]'
-              }`}
+                }`}
             >
               <div className="flex items-center space-x-3">
                 <item.icon size={18} />
@@ -688,12 +702,12 @@ const MainApp = ({ onBack }: { onBack: () => void }) => {
             <div className="flex-1 overflow-hidden">
               <p className="text-sm font-bold truncate">bbbbb@gmail.com</p>
               <div className="flex items-center gap-1.5 mt-0.5">
-                 <Globe size={10} className="text-emerald-500" />
-                 <span className="text-[9px] font-bold text-[#555] uppercase tracking-wider">Verified Session</span>
+                <Globe size={10} className="text-emerald-500" />
+                <span className="text-[9px] font-bold text-[#555] uppercase tracking-wider">Verified Session</span>
               </div>
             </div>
           </div>
-          
+
           <button onClick={onBack} className="w-full flex items-center space-x-3 px-4 py-2 text-[#444] hover:text-white text-xs font-bold uppercase tracking-widest transition-colors">
             <LogOut size={16} />
             <span>Disconnect</span>
@@ -705,27 +719,27 @@ const MainApp = ({ onBack }: { onBack: () => void }) => {
       <main className="flex-1 flex flex-col overflow-hidden bg-[#030303] relative">
         {/* Subtle background glow */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
-        
+
         <div className="flex-1 overflow-y-auto relative z-10">
-           <div className="max-w-6xl mx-auto p-12">
-              {activeView === 'dashboard' && <Dashboard />}
-              {activeView === 'marketplace' && <Marketplace onAddAgent={() => setActiveView('chats')} />}
-              {/* Fallback for other views */}
-              {!['dashboard', 'marketplace'].includes(activeView) && (
-                <div className="h-full flex items-center justify-center py-32">
-                   <div className="text-center space-y-6 max-w-sm">
-                      <div className="w-16 h-16 bg-white/[0.03] border border-white/[0.06] rounded-2xl mx-auto flex items-center justify-center text-[#555]">
-                         <Layers size={32} />
-                      </div>
-                      <h2 className="text-2xl font-bold tracking-tight">{navItems.find(n => n.id === activeView)?.label} Empty</h2>
-                      <p className="text-[#8a8a8a] font-medium leading-relaxed">
-                        This section is currently being provisioned for your AI workforce.
-                      </p>
-                      <button onClick={() => setActiveView('dashboard')} className="btn-primary">Return to Overview</button>
-                   </div>
+          <div className="max-w-6xl mx-auto p-12">
+            {activeView === 'dashboard' && <Dashboard />}
+            {activeView === 'marketplace' && <Marketplace onAddAgent={() => setActiveView('chats')} />}
+            {/* Fallback for other views */}
+            {!['dashboard', 'marketplace'].includes(activeView) && (
+              <div className="h-full flex items-center justify-center py-32">
+                <div className="text-center space-y-6 max-w-sm">
+                  <div className="w-16 h-16 bg-white/[0.03] border border-white/[0.06] rounded-2xl mx-auto flex items-center justify-center text-[#555]">
+                    <Layers size={32} />
+                  </div>
+                  <h2 className="text-2xl font-bold tracking-tight">{navItems.find(n => n.id === activeView)?.label} Empty</h2>
+                  <p className="text-[#8a8a8a] font-medium leading-relaxed">
+                    This section is currently being provisioned for your AI workforce.
+                  </p>
+                  <button onClick={() => setActiveView('dashboard')} className="btn-primary">Return to Overview</button>
                 </div>
-              )}
-           </div>
+              </div>
+            )}
+          </div>
         </div>
       </main>
     </div>
@@ -733,13 +747,27 @@ const MainApp = ({ onBack }: { onBack: () => void }) => {
 };
 
 const App: React.FC = () => {
-  const [showApp, setShowApp] = useState(false);
+  const [currentView, setCurrentView] = useState<'landing' | 'app' | 'features' | 'usecases'>('landing');
 
-  if (showApp) {
-    return <MainApp onBack={() => setShowApp(false)} />;
+  if (currentView === 'app') {
+    return <MainApp onBack={() => setCurrentView('landing')} />;
   }
 
-  return <LandingPage onStart={() => setShowApp(true)} />;
+  if (currentView === 'features') {
+    return <Features onBack={() => setCurrentView('landing')} />;
+  }
+
+  if (currentView === 'usecases') {
+    return <Usecases onBack={() => setCurrentView('landing')} />;
+  }
+
+  return (
+    <LandingPage
+      onStart={() => setCurrentView('app')}
+      onViewFeatures={() => setCurrentView('features')}
+      onViewUsecases={() => setCurrentView('usecases')}
+    />
+  );
 };
 
 export default App;
