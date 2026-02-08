@@ -251,12 +251,6 @@ export default function Home() {
             <section className="relative pt-32 sm:pt-48 pb-16 sm:pb-32 px-4 sm:px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
-                        <div className="inline-flex items-center space-x-2 px-3 py-1 bg-white/[0.03] border border-white/[0.08] rounded-full">
-                            <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-white/60">New</span>
-                            <div className="w-[1px] h-3 bg-white/10"></div>
-                            <span className="text-[10px] sm:text-[11px] font-medium text-white/80">Autonomous workflows are here</span>
-                        </div>
-
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight max-w-5xl leading-[1.1] sm:leading-[1.05]">
                             The future of <br className="hidden sm:block" /><span className="sm:hidden"> </span>work is <span className="text-[#8a8a8a]">autonomous</span>
                         </h1>
