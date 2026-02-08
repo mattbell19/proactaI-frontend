@@ -1,0 +1,7 @@
+{
+  "name": "ProactAI - AI Employee Platform",
+  "description": "The world's first platform for high-performance AI employees.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
