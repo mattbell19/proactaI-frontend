@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Plus, 
   ArrowRight, 
@@ -39,13 +39,81 @@ import {
   Workflow,
   Monitor,
   Trello,
-  Layout
+  Layout,
+  Heart,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import Marketplace from './components/Marketplace';
 import Dashboard from './components/Dashboard';
 import { AppState } from './types';
 
 const roles = ["SDR", "Recruiter", "Support", "Analyst", "Assistant"];
+
+const USE_CASES = [
+  {
+    handle: "@dreetje",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=dreetje",
+    tag: "Automation",
+    likes: 271,
+    tasks: [
+      "Check my incoming mail, and remove spam",
+      "Check my incoming messages (through Beeper)",
+      "Order things for me",
+      "Send my reminders to Tana",
+      "Create issues on GitHub",
+      "Sync my Google Places",
+      "Reads my X bookmarks and discusses them with me",
+      "Generate a nice pdf summary of car conversations",
+      "Keep track of costs and split them after trips",
+      "Impersonate me in a group chat with friends (Hilarious)",
+      "It can call me and we can chat",
+      "Has its own 1Password vault it can read and write to"
+    ]
+  },
+  {
+    handle: "@danpeguine",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=dan",
+    tag: "Productivity",
+    likes: 257,
+    tasks: [
+      "Timeblocks tasks in my calendar based on importance",
+      "Scores tasks importance and urgency based on an algorithm we're developing together",
+      "Leads me through a weekly review based on meeting transcriptions & notes",
+      "Gives a morning daily brief: weather, weekly objectives, health stats, meetings agenda, key reminders...",
+      "Notifies my wife and I about our son's upcoming school tests",
+      "Researches big projects and breaks them down to tasks",
+      "Researches people before meetings and creates briefing docs",
+      "Spawns background sub-agents to research specific technical topics"
+    ]
+  },
+  {
+    handle: "@davis7",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=davis",
+    tag: "Developer",
+    likes: 229,
+    tasks: [
+      "This is the \"blue text bubbles\" moment of the ai race",
+      "All the cool shit u've been seeing about building crazy custom agents on top of a coding agent?",
+      "OpenClaw, btca, and the thousands more that will get built this year now HAVE to be built using our SDK",
+      "100x more expensive and if they're built on competitor's sdk guess what they can't do?",
+      "Switch to a better model from another provider when it releases"
+    ]
+  },
+  {
+    handle: "@sergey_brin",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=sergey",
+    tag: "Search",
+    likes: 198,
+    tasks: [
+      "Aggregates news from 50+ sources daily",
+      "Filters out biased reporting using cross-reference algorithms",
+      "Summarizes research papers into actionable insights",
+      "Monitors competitors' patent filings in real-time",
+      "Automatically updates internal wiki pages with new data"
+    ]
+  }
+];
 
 const IntegrationIcon = ({ icon: Icon, label }: { icon: any, label: string }) => (
   <div className="group flex flex-col items-center space-y-4">
@@ -94,6 +162,7 @@ const FeatureShowcase = ({ icon: Icon, title, description, badge, preview }: { i
 
 const LandingPage = ({ onStart }: { onStart: () => void }) => {
   const [roleIndex, setRoleIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -101,6 +170,14 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, clientWidth } = scrollContainerRef.current;
+      const scrollTo = direction === 'left' ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      scrollContainerRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="relative">
@@ -178,6 +255,78 @@ const LandingPage = ({ onStart }: { onStart: () => void }) => {
                     <div className="col-span-8 h-64 bg-white/5 border border-white/10 rounded-3xl"></div>
                   </div>
                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases Carousel Section */}
+      <section className="py-32 px-6 bg-[#030303] overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-6">
+            <div className="flex items-center justify-center space-x-4">
+               <span className="text-red-500 text-4xl font-light scale-y-150 origin-bottom leading-none">&gt;</span>
+               <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">Use Cases</h2>
+            </div>
+            <p className="text-[#8a8a8a] text-xl font-medium">Real projects, real automation, real magic.</p>
+          </div>
+
+          <div className="relative group">
+            <button 
+              onClick={() => scroll('left')} 
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-20 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 opacity-0 group-hover:opacity-100 transition-all"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              onClick={() => scroll('right')} 
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-20 w-12 h-12 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 opacity-0 group-hover:opacity-100 transition-all"
+            >
+              <ChevronRight size={24} />
+            </button>
+
+            <div 
+              ref={scrollContainerRef}
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 px-4"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {USE_CASES.map((uc, i) => (
+                <div 
+                  key={i} 
+                  className="snap-center shrink-0 w-full md:w-[450px] bg-[#0d0d0d] border border-white/[0.08] rounded-[32px] p-8 flex flex-col space-y-6 hover:border-white/20 transition-all"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden border border-white/10">
+                        <img src={uc.avatar} alt={uc.handle} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-red-400 font-bold text-lg">{uc.handle}</span>
+                        <div className="flex items-center gap-2 text-[#555] text-xs font-bold uppercase tracking-widest">
+                          <Zap size={10} className="text-yellow-500/50" />
+                          <span>{uc.tag}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-red-500 font-bold text-sm">
+                      <Heart size={14} fill="currentColor" />
+                      <span>{uc.likes}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex-1 space-y-2">
+                    <p className="text-white/60 text-sm font-medium mb-4 italic">What I'm currently doing with @openclaw:</p>
+                    <ul className="space-y-3">
+                      {uc.tasks.map((task, ti) => (
+                        <li key={ti} className="flex items-start gap-3 text-[#8a8a8a] text-sm leading-relaxed">
+                          <span className="text-white/20 mt-1.5 shrink-0">•</span>
+                          <span>{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
