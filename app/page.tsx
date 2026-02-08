@@ -677,66 +677,6 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Feature Bento Grid */}
-            <section className="py-32 px-6 bg-black">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-20">
-                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Purpose-built for speed</h2>
-                        <p className="text-lg text-[#8a8a8a] mt-4 font-medium">Everything you need to scale your team with AI.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="md:col-span-2 bento-card p-10 flex flex-col justify-between min-h-[400px]">
-                            <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-8 border border-white/10">
-                                <Zap className="text-white" size={24} />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-bold mb-3">Native Integrations</h3>
-                                <p className="text-[#8a8a8a] font-medium leading-relaxed">
-                                    Connect ProactAI to Salesforce, HubSpot, Slack, and 2,000+ other apps. Our agents live in your ecosystem.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="bento-card p-10 flex flex-col justify-between min-h-[400px]">
-                            <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-8 border border-white/10">
-                                <ShieldCheck className="text-white" size={24} />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-bold mb-3">Secure Execution</h3>
-                                <p className="text-[#8a8a8a] font-medium leading-relaxed">
-                                    SOC2 compliant. Your data is never used to train global models.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="bento-card p-10 flex flex-col justify-between min-h-[400px]">
-                            <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-8 border border-white/10">
-                                <BarChart3 className="text-white" size={24} />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-bold mb-3">ROI Tracking</h3>
-                                <p className="text-[#8a8a8a] font-medium leading-relaxed">
-                                    Monitor performance and cost-savings in real-time.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="md:col-span-2 bento-card p-10 flex flex-col justify-between min-h-[400px]">
-                            <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-8 border border-white/10">
-                                <Bot className="text-white" size={24} />
-                            </div>
-                            <div>
-                                <h3 className="text-2xl font-bold mb-3">Human-in-the-loop</h3>
-                                <p className="text-[#8a8a8a] font-medium leading-relaxed">
-                                    Set triggers for human approval on high-stakes decisions. You stay in control while the AI does the heavy lifting.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <section className="py-48 px-6 text-center">
                 <div className="max-w-4xl mx-auto space-y-12">
                     <h2 className="text-5xl md:text-7xl font-bold tracking-tight">Scale your team, <br /><span className="text-[#8a8a8a]">not your headcount</span></h2>
