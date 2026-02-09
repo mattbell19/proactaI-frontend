@@ -42,9 +42,7 @@ export default function InvestorsPage() {
             <nav className="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/[0.04]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center space-x-2 group">
-                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <div className="w-4 h-4 bg-black rounded-sm"></div>
-                        </div>
+                        <img src="/icon-white.png" alt="Auxio" className="w-8 h-8 group-hover:scale-110 transition-transform" />
                         <span className="font-bold text-xl tracking-tight text-white">Auxio</span>
                     </Link>
                     <div className="flex items-center space-x-4">
@@ -220,9 +218,7 @@ export default function InvestorsPage() {
             <footer className="py-20 px-6 border-t border-white/[0.05]">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
                     <div className="flex items-center space-x-2.5">
-                        <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
-                            <div className="w-3 h-3 bg-black rounded-sm"></div>
-                        </div>
+                        <img src="/icon-white.png" alt="Auxio" className="w-6 h-6" />
                         <span className="font-bold tracking-tight">Auxio</span>
                     </div>
                     <div className="flex space-x-8 text-sm font-medium text-[#8a8a8a]">

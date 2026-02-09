@@ -47,9 +47,7 @@ export default function ShowcasePage() {
                     <Menu size={24} className="text-white" />
                 </button>
                 <div className="flex items-center space-x-2">
-                    <div className="w-7 h-7 bg-white rounded-lg flex items-center justify-center">
-                        <div className="w-3.5 h-3.5 bg-black rounded-sm"></div>
-                    </div>
+                    <img src="/icon-white.png" alt="Auxio" className="w-7 h-7" />
                     <span className="font-bold text-lg tracking-tight">Auxio</span>
                 </div>
                 <div className="w-10"></div> {/* Spacer for centering */}
@@ -64,9 +62,7 @@ export default function ShowcasePage() {
                     >
                         <div className="flex items-center justify-between mb-8">
                             <div className="flex items-center space-x-2">
-                                <div className="w-7 h-7 bg-white rounded-lg flex items-center justify-center">
-                                    <div className="w-3.5 h-3.5 bg-black rounded-sm"></div>
-                                </div>
+                                <img src="/icon-white.png" alt="Auxio" className="w-7 h-7" />
                                 <span className="font-bold text-lg tracking-tight">Auxio</span>
                             </div>
                             <button onClick={() => setSidebarOpen(false)} className="p-2 -mr-2">

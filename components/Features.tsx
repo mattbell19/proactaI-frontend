@@ -95,9 +95,7 @@ const Features = () => {
             <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-4 sm:px-6 py-4">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <Link href="/" className="flex items-center space-x-2 sm:space-x-2.5 group">
-                        <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-black rounded-sm"></div>
-                        </div>
+                        <img src="/icon-white.png" alt="Auxio" className="w-7 h-7 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
                         <span className="font-bold text-lg sm:text-xl tracking-tight text-white">Auxio</span>
                     </Link>
                     <div className="flex items-center space-x-2 sm:space-x-4">
@@ -337,9 +335,7 @@ const Features = () => {
             <footer className="py-20 px-6 border-t border-white/[0.05]">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
                     <div className="flex items-center space-x-2.5">
-                        <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
-                            <div className="w-3 h-3 bg-black rounded-sm"></div>
-                        </div>
+                        <img src="/icon-white.png" alt="Auxio" className="w-6 h-6" />
                         <span className="font-bold tracking-tight">Auxio</span>
                     </div>
                     <div className="test-sm text-[#555]">© 2024 Auxio Labs Inc. All rights reserved.</div>

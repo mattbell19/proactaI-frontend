@@ -200,9 +200,7 @@ export default function Home() {
                     <div className="flex flex-col h-full p-6">
                         <div className="flex items-center justify-between mb-12">
                             <div className="flex items-center space-x-2.5">
-                                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                                    <div className="w-4 h-4 bg-black rounded-sm"></div>
-                                </div>
+                                <img src="/icon-white.png" alt="Auxio" className="w-8 h-8" />
                                 <span className="font-bold text-xl tracking-tight text-white">Auxio</span>
                             </div>
                             <button onClick={() => setMobileMenuOpen(false)} className="p-2">
@@ -227,9 +225,7 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <div className="flex items-center space-x-6 lg:space-x-12">
                         <div className="flex items-center space-x-2.5">
-                            <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                                <div className="w-4 h-4 bg-black rounded-sm"></div>
-                            </div>
+                            <img src="/icon-white.png" alt="Auxio" className="w-8 h-8" />
                             <Link href="/" className="font-bold text-lg sm:text-xl tracking-tight text-white">Auxio</Link>
                         </div>
                         <div className="hidden lg:flex items-center space-x-8">
@@ -634,9 +630,7 @@ export default function Home() {
             <footer className="py-20 px-6 border-t border-white/[0.05]">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
                     <div className="flex items-center space-x-2.5">
-                        <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
-                            <div className="w-3 h-3 bg-black rounded-sm"></div>
-                        </div>
+                        <img src="/icon-white.png" alt="Auxio" className="w-6 h-6" />
                         <span className="font-bold tracking-tight">Auxio</span>
                     </div>
                     <div className="flex space-x-8 text-sm font-medium text-[#8a8a8a]">
