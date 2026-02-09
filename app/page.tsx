@@ -617,7 +617,7 @@ export default function Home() {
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12">
                         <IntegrationIcon label="Claude">
-                            <img src="https://www.anthropic.com/images/icons/claude.svg" alt="Claude" className="w-full h-full object-contain" />
+                            <img src="https://claude.ai/images/claude_app_icon.png" alt="Claude" className="w-full h-full object-contain" />
                         </IntegrationIcon>
                         <IntegrationIcon label="Google">
                             <img src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg" alt="Google" className="w-full h-full object-contain" />
