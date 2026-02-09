@@ -116,62 +116,11 @@ const USE_CASES = [
 
 const IntegrationIcon = ({ label, children }: { label: string, children: React.ReactNode }) => (
     <div className="group flex flex-col items-center space-y-4">
-        <div className="w-16 h-16 bg-[#0a0a0a] border border-white/[0.06] rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:border-white/20 group-hover:bg-white/[0.02]">
+        <div className="w-16 h-16 bg-[#0a0a0a] border border-white/[0.06] rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:border-white/20 group-hover:bg-white/[0.02] overflow-hidden p-3">
             {children}
         </div>
         <span className="text-[11px] font-bold uppercase tracking-widest text-[#555] group-hover:text-[#8a8a8a] transition-colors">{label}</span>
     </div>
-);
-
-{/* Brand SVG Icons */ }
-const ClaudeIcon = () => (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#CC9B7A] group-hover:text-[#D4A574] transition-colors">
-        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-);
-
-const KimiIcon = () => (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#6366F1] group-hover:text-[#818CF8] transition-colors">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-        <path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-);
-
-const OpenRouterIcon = () => (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#10B981] group-hover:text-[#34D399] transition-colors">
-        <path d="M4 12H8M16 12H20M12 4V8M12 16V20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
-        <path d="M8 8L10 10M14 14L16 16M8 16L10 14M14 10L16 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-);
-
-const TelegramIcon = () => (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#0088CC] group-hover:text-[#29B6F6] transition-colors">
-        <path d="M22 2L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-);
-
-const SlackIcon = () => (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#E01E5A] group-hover:text-[#ECB22E] transition-colors">
-        <path d="M14.5 10C13.67 10 13 9.33 13 8.5V3.5C13 2.67 13.67 2 14.5 2C15.33 2 16 2.67 16 3.5V8.5C16 9.33 15.33 10 14.5 10Z" fill="currentColor" />
-        <path d="M20.5 10H19V8.5C19 7.67 19.67 7 20.5 7C21.33 7 22 7.67 22 8.5C22 9.33 21.33 10 20.5 10Z" fill="currentColor" />
-        <path d="M9.5 14C10.33 14 11 14.67 11 15.5V20.5C11 21.33 10.33 22 9.5 22C8.67 22 8 21.33 8 20.5V15.5C8 14.67 8.67 14 9.5 14Z" fill="currentColor" />
-        <path d="M3.5 14H5V15.5C5 16.33 4.33 17 3.5 17C2.67 17 2 16.33 2 15.5C2 14.67 2.67 14 3.5 14Z" fill="currentColor" />
-        <path d="M14 14.5C14 13.67 14.67 13 15.5 13H20.5C21.33 13 22 13.67 22 14.5C22 15.33 21.33 16 20.5 16H15.5C14.67 16 14 15.33 14 14.5Z" fill="currentColor" />
-        <path d="M14 20.5C14 19.67 14.67 19 15.5 19C16.33 19 17 19.67 17 20.5C17 21.33 16.33 22 15.5 22C14.67 22 14 21.33 14 20.5Z" fill="currentColor" />
-        <path d="M10 9.5C10 10.33 9.33 11 8.5 11H3.5C2.67 11 2 10.33 2 9.5C2 8.67 2.67 8 3.5 8H8.5C9.33 8 10 8.67 10 9.5Z" fill="currentColor" />
-        <path d="M8.5 2C9.33 2 10 2.67 10 3.5C10 4.33 9.33 5 8.5 5C7.67 5 7 4.33 7 3.5C7 2.67 7.67 2 8.5 2Z" fill="currentColor" />
-    </svg>
-);
-
-const BraveIcon = () => (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="text-[#FB542B] group-hover:text-[#FF7654] transition-colors">
-        <path d="M12 2L4 6V12C4 16.42 7.35 20.54 12 22C16.65 20.54 20 16.42 20 12V6L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M9 12L11 14L15 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
 );
 
 
@@ -667,12 +616,24 @@ export default function Home() {
                         <p className="text-[#8a8a8a] text-lg font-medium">Native integrations with your favorite tools and platforms.</p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12">
-                        <IntegrationIcon label="Claude"><ClaudeIcon /></IntegrationIcon>
-                        <IntegrationIcon label="Kimi"><KimiIcon /></IntegrationIcon>
-                        <IntegrationIcon label="OpenRouter"><OpenRouterIcon /></IntegrationIcon>
-                        <IntegrationIcon label="Telegram"><TelegramIcon /></IntegrationIcon>
-                        <IntegrationIcon label="Slack"><SlackIcon /></IntegrationIcon>
-                        <IntegrationIcon label="Brave Search"><BraveIcon /></IntegrationIcon>
+                        <IntegrationIcon label="Claude">
+                            <img src="https://www.anthropic.com/images/icons/claude.svg" alt="Claude" className="w-full h-full object-contain" />
+                        </IntegrationIcon>
+                        <IntegrationIcon label="Google">
+                            <img src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg" alt="Google" className="w-full h-full object-contain" />
+                        </IntegrationIcon>
+                        <IntegrationIcon label="Calendar">
+                            <img src="https://fonts.gstatic.com/s/i/productlogos/calendar_2020q4/v8/192px.svg" alt="Google Calendar" className="w-full h-full object-contain" />
+                        </IntegrationIcon>
+                        <IntegrationIcon label="Telegram">
+                            <img src="https://telegram.org/img/t_logo.png" alt="Telegram" className="w-full h-full object-contain" />
+                        </IntegrationIcon>
+                        <IntegrationIcon label="Brave">
+                            <img src="https://brave.com/static-assets/images/brave-logo-sans-text.svg" alt="Brave Search" className="w-full h-full object-contain" />
+                        </IntegrationIcon>
+                        <IntegrationIcon label="Browserbase">
+                            <img src="https://www.browserbase.com/favicon.ico" alt="Browserbase" className="w-full h-full object-contain" />
+                        </IntegrationIcon>
                     </div>
                 </div>
             </section>
