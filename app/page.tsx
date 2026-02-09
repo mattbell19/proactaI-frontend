@@ -297,30 +297,14 @@ export default function Home() {
                         </a>
                     </div>
 
-                    {/* Preview mockup - hidden on small mobile, simplified on tablet */}
-                    <div className="mt-16 sm:mt-32 bento-card p-1 overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.05)] hidden sm:block">
-                        <div className="bg-[#050505] rounded-[16px] sm:rounded-[22px] overflow-hidden border border-white/[0.03] p-4 sm:p-10">
-                            <div className="max-w-5xl mx-auto">
-                                <div className="flex items-center justify-between mb-4 sm:mb-8 opacity-60 pointer-events-none scale-[0.95] sm:scale-[0.9]">
-                                    <div className="flex items-center gap-2 sm:gap-4">
-                                        <div className="bg-white text-black px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-sm">Open Chat</div>
-                                        <div className="bg-white/5 border border-white/10 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-xs sm:text-sm hidden md:block">View Tasks</div>
-                                    </div>
-                                    <div className="flex gap-2 sm:gap-4">
-                                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/5"></div>
-                                        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/5"></div>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 opacity-80 grayscale pointer-events-none scale-[0.95] sm:scale-[0.9]">
-                                    {[1, 2, 3, 4].map(i => (
-                                        <div key={i} className="bg-white/5 border border-white/10 rounded-3xl h-32"></div>
-                                    ))}
-                                </div>
-                                <div className="mt-8 grid grid-cols-12 gap-6 opacity-40 pointer-events-none scale-[0.9]">
-                                    <div className="col-span-4 h-64 bg-white/5 border border-white/10 rounded-3xl"></div>
-                                    <div className="col-span-8 h-64 bg-white/5 border border-white/10 rounded-3xl"></div>
-                                </div>
-                            </div>
+                    {/* Preview mockup - hidden on small mobile */}
+                    <div className="mt-12 sm:mt-24 w-full max-w-5xl mx-auto">
+                        <div className="bento-card p-1 sm:p-2 overflow-hidden shadow-[0_0_100px_rgba(255,255,255,0.05)] rounded-2xl sm:rounded-3xl">
+                            <img
+                                src="/dashboard-preview.png"
+                                alt="Auxio Dashboard Preview"
+                                className="w-full h-auto rounded-xl sm:rounded-2xl"
+                            />
                         </div>
                     </div>
                 </div>
