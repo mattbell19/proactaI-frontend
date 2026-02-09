@@ -300,8 +300,8 @@ export default function Home() {
                 </div>
             </nav>
 
-            <section className="relative pt-32 sm:pt-48 pb-16 sm:pb-32 px-4 sm:px-6">
-                <div className="max-w-7xl mx-auto">
+            <section className="relative min-h-[85vh] sm:min-h-0 pt-28 sm:pt-48 pb-20 sm:pb-32 px-4 sm:px-6 flex items-center">
+                <div className="max-w-7xl mx-auto w-full">
                     <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8">
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight max-w-5xl leading-[1.1] sm:leading-[1.05]">
                             The future of <br className="hidden sm:block" /><span className="sm:hidden"> </span>work is <span className="text-[#8a8a8a]">autonomous</span>
