@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "ProactAI | The Future of Autonomous Work",
+    title: "Auxio | The Future of Autonomous Work",
     description: "The world's first platform for high-performance AI employees.",
 };
 

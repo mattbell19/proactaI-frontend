@@ -28,7 +28,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ agent, messages, onSendMe
     const userMessage = input.trim();
     setInput('');
     onSendMessage(agent.id, userMessage, 'user');
-    
+
     setIsTyping(true);
     try {
       const history = messages.map(m => ({ role: m.role, content: m.content }));
@@ -84,9 +84,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ agent, messages, onSendMe
             </div>
             <div className="flex flex-wrap justify-center gap-3">
               {["Run prospecting report", "Schedule sync", "Draft email"].map(hint => (
-                <button 
+                <button
                   key={hint}
-                  onClick={() => setInput(hint)} 
+                  onClick={() => setInput(hint)}
                   className="text-[11px] font-bold uppercase tracking-wider px-4 py-2 bg-white/5 border border-white/5 rounded-full hover:bg-white hover:text-black transition-all"
                 >
                   {hint}
@@ -95,15 +95,14 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ agent, messages, onSendMe
             </div>
           </div>
         )}
-        
+
         {messages.map((msg) => (
           <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div className={`max-w-[75%] flex ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'} items-end gap-3`}>
-              <div className={`p-5 rounded-3xl ${
-                msg.role === 'user' 
-                  ? 'bg-indigo-600 text-white rounded-br-none shadow-[0_4px_15px_rgba(99,102,241,0.2)]' 
+              <div className={`p-5 rounded-3xl ${msg.role === 'user'
+                  ? 'bg-indigo-600 text-white rounded-br-none shadow-[0_4px_15px_rgba(99,102,241,0.2)]'
                   : 'bg-zinc-900 border border-white/5 text-zinc-100 rounded-bl-none shadow-xl'
-              }`}>
+                }`}>
                 <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
                 <div className={`text-[9px] mt-3 font-bold opacity-40 uppercase tracking-widest ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
                   {new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -150,17 +149,16 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ agent, messages, onSendMe
                   <Mic size={18} />
                 </button>
               </div>
-              <span className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-40">Proact Secure Mode</span>
+              <span className="text-[9px] font-bold uppercase tracking-[0.2em] opacity-40">Auxio Secure Mode</span>
             </div>
           </div>
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={!input.trim() || isTyping}
-            className={`p-4 rounded-2xl transition-all shadow-xl ${
-              input.trim() && !isTyping 
-                ? 'bg-white text-black hover:scale-105 active:scale-95' 
+            className={`p-4 rounded-2xl transition-all shadow-xl ${input.trim() && !isTyping
+                ? 'bg-white text-black hover:scale-105 active:scale-95'
                 : 'bg-zinc-900 text-zinc-700 cursor-not-allowed'
-            }`}
+              }`}
           >
             <Send size={22} />
           </button>

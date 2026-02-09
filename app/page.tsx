@@ -254,7 +254,7 @@ export default function Home() {
                                 <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                                     <div className="w-4 h-4 bg-black rounded-sm"></div>
                                 </div>
-                                <span className="font-bold text-xl tracking-tight text-white">ProactAI</span>
+                                <span className="font-bold text-xl tracking-tight text-white">Auxio</span>
                             </div>
                             <button onClick={() => setMobileMenuOpen(false)} className="p-2">
                                 <X size={24} className="text-white" />
@@ -281,7 +281,7 @@ export default function Home() {
                             <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                                 <div className="w-4 h-4 bg-black rounded-sm"></div>
                             </div>
-                            <Link href="/" className="font-bold text-lg sm:text-xl tracking-tight text-white">ProactAI</Link>
+                            <Link href="/" className="font-bold text-lg sm:text-xl tracking-tight text-white">Auxio</Link>
                         </div>
                         <div className="hidden lg:flex items-center space-x-8">
                             <Link href="/usecases" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Use Cases</Link>
@@ -384,7 +384,7 @@ export default function Home() {
                         <div className="space-y-4">
                             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Your AI doesn't just chat. <br /><span className="text-[#8a8a8a]">It does the work.</span></h2>
                             <p className="text-lg text-[#8a8a8a] font-medium max-w-2xl leading-relaxed">
-                                ProactAI agents come equipped with a full suite of business tools. They manage your docs, populate your CRM, and move tasks on your board.
+                                Auxio agents come equipped with a full suite of business tools. They manage your docs, populate your CRM, and move tasks on your board.
                             </p>
                         </div>
                         <Link href="/features" className="btn-secondary flex items-center space-x-2 group">
@@ -576,7 +576,7 @@ export default function Home() {
                             </div>
                             <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Deploy to the cloud <br /><span className="text-[#8a8a8a]">in less than 60s</span></h2>
                             <p className="text-[#8a8a8a] text-lg font-medium leading-relaxed">
-                                Skip the complex infrastructure. ProactAI agents come with their own dedicated workspace and pre-configured API mesh, ready to go live immediately.
+                                Skip the complex infrastructure. Auxio agents come with their own dedicated workspace and pre-configured API mesh, ready to go live immediately.
                             </p>
                         </div>
 
@@ -692,14 +692,14 @@ export default function Home() {
                         <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
                             <div className="w-3 h-3 bg-black rounded-sm"></div>
                         </div>
-                        <span className="font-bold tracking-tight">ProactAI</span>
+                        <span className="font-bold tracking-tight">Auxio</span>
                     </div>
                     <div className="flex space-x-8 text-sm font-medium text-[#8a8a8a]">
                         {['Privacy', 'Terms', 'Security', 'Twitter'].map(link => (
                             <a key={link} href="#" className="hover:text-white transition-colors">{link}</a>
                         ))}
                     </div>
-                    <div className="text-sm text-[#555]">© 2024 Proact Labs Inc.</div>
+                    <div className="text-sm text-[#555]">© 2024 Auxio Labs Inc.</div>
                 </div>
             </footer>
         </div>

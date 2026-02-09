@@ -50,7 +50,7 @@ export default function ShowcasePage() {
                     <div className="w-7 h-7 bg-white rounded-lg flex items-center justify-center">
                         <div className="w-3.5 h-3.5 bg-black rounded-sm"></div>
                     </div>
-                    <span className="font-bold text-lg tracking-tight">ProactAI</span>
+                    <span className="font-bold text-lg tracking-tight">Auxio</span>
                 </div>
                 <div className="w-10"></div> {/* Spacer for centering */}
             </div>
@@ -67,7 +67,7 @@ export default function ShowcasePage() {
                                 <div className="w-7 h-7 bg-white rounded-lg flex items-center justify-center">
                                     <div className="w-3.5 h-3.5 bg-black rounded-sm"></div>
                                 </div>
-                                <span className="font-bold text-lg tracking-tight">ProactAI</span>
+                                <span className="font-bold text-lg tracking-tight">Auxio</span>
                             </div>
                             <button onClick={() => setSidebarOpen(false)} className="p-2 -mr-2">
                                 <X size={20} className="text-[#8a8a8a]" />

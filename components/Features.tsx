@@ -98,7 +98,7 @@ const Features = () => {
                         <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                             <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 bg-black rounded-sm"></div>
                         </div>
-                        <span className="font-bold text-lg sm:text-xl tracking-tight text-white">ProactAI</span>
+                        <span className="font-bold text-lg sm:text-xl tracking-tight text-white">Auxio</span>
                     </Link>
                     <div className="flex items-center space-x-2 sm:space-x-4">
                         <Link href="/" className="text-xs sm:text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors hidden sm:block">Back to Home</Link>
@@ -340,9 +340,9 @@ const Features = () => {
                         <div className="w-6 h-6 bg-white rounded flex items-center justify-center">
                             <div className="w-3 h-3 bg-black rounded-sm"></div>
                         </div>
-                        <span className="font-bold tracking-tight">ProactAI</span>
+                        <span className="font-bold tracking-tight">Auxio</span>
                     </div>
-                    <div className="test-sm text-[#555]">© 2024 Proact Labs Inc. All rights reserved.</div>
+                    <div className="test-sm text-[#555]">© 2024 Auxio Labs Inc. All rights reserved.</div>
                 </div>
             </footer>
         </div>
