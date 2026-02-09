@@ -640,9 +640,10 @@ export default function Home() {
                         <span className="font-bold tracking-tight">Auxio</span>
                     </div>
                     <div className="flex space-x-8 text-sm font-medium text-[#8a8a8a]">
-                        {['Privacy', 'Terms', 'Security', 'Twitter'].map(link => (
+                        {['Privacy', 'Terms', 'Security'].map(link => (
                             <a key={link} href="#" className="hover:text-white transition-colors">{link}</a>
                         ))}
+                        <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
                     </div>
                     <div className="text-sm text-[#555]">© 2024 Auxio Labs Inc.</div>
                 </div>
