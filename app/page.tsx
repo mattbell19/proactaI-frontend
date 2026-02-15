@@ -211,11 +211,11 @@ export default function Home() {
                             <Link href="/usecases" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Use Cases</Link>
                             <Link href="/features" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Features</Link>
                             <a href="#" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
-                            <a href="#" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
+                            <a href="/pricing" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
                         </nav>
                         <div className="space-y-4 pt-8 border-t border-white/10">
-                            <button className="w-full text-lg font-medium text-[#8a8a8a] hover:text-white py-3">Sign in</button>
-                            <a href="https://clawbot-fi5p.onrender.com/signup" onClick={() => setMobileMenuOpen(false)} className="btn-primary w-full text-lg py-4">Get Started</a>
+                            <a href="https://app.auxio.co/login" className="w-full text-lg font-medium text-[#8a8a8a] hover:text-white py-3 block text-center">Sign in</a>
+                            <a href="https://app.auxio.co/signup" onClick={() => setMobileMenuOpen(false)} className="btn-primary w-full text-lg py-4">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -232,12 +232,12 @@ export default function Home() {
                             <Link href="/usecases" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Use Cases</Link>
                             <Link href="/features" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Features</Link>
                             <a href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
-                            <a href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
+                            <a href="/pricing" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
                         </div>
                     </div>
                     <div className="flex items-center space-x-3 sm:space-x-4">
-                        <button className="hidden sm:block text-sm font-medium text-[#8a8a8a] hover:text-white">Sign in</button>
-                        <a href="https://clawbot-fi5p.onrender.com/signup" className="btn-primary text-sm px-4 sm:px-6 py-2.5 hidden sm:flex">Get Started</a>
+                        <a href="https://app.auxio.co/login" className="hidden sm:block text-sm font-medium text-[#8a8a8a] hover:text-white">Sign in</a>
+                        <a href="https://app.auxio.co/signup" className="btn-primary text-sm px-4 sm:px-6 py-2.5 hidden sm:flex">Get Started</a>
                         <button onClick={() => setMobileMenuOpen(true)} className="lg:hidden p-2">
                             <Menu size={24} className="text-white" />
                         </button>
@@ -257,7 +257,7 @@ export default function Home() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4 sm:pt-6 w-full sm:w-auto">
-                            <a href="https://clawbot-fi5p.onrender.com/signup" className="btn-primary w-full sm:w-auto text-base px-8 sm:px-10 py-4 flex items-center justify-center space-x-2">
+                            <a href="https://app.auxio.co/signup" className="btn-primary w-full sm:w-auto text-base px-8 sm:px-10 py-4 flex items-center justify-center space-x-2">
                                 <span>Hire your first AI</span>
                                 <ArrowRight size={18} />
                             </a>
@@ -622,7 +622,7 @@ export default function Home() {
                 <div className="max-w-4xl mx-auto space-y-12">
                     <h2 className="text-5xl md:text-7xl font-bold tracking-tight">Scale your team, <br /><span className="text-[#8a8a8a]">not your headcount</span></h2>
                     <div className="flex justify-center">
-                        <a href="https://clawbot-fi5p.onrender.com/signup" className="btn-primary text-xl px-12 py-5">Get Started Free</a>
+                        <a href="https://app.auxio.co/signup" className="btn-primary text-xl px-12 py-5">Get Started Free</a>
                     </div>
                 </div>
             </section>
