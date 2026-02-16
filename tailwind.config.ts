@@ -8,6 +8,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            colors: {
+                accent: "#6366f1", // Indigo 500
+            },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic":

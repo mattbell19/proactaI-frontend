@@ -209,6 +209,7 @@ export default function Home() {
                         </div>
                         <nav className="flex-1 flex flex-col space-y-6">
                             <Link href="/usecases" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Use Cases</Link>
+                            <Link href="/playbooks" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Playbooks</Link>
                             <Link href="/features" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Features</Link>
                             <a href="#" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
                             <a href="/pricing" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
@@ -230,6 +231,7 @@ export default function Home() {
                         </div>
                         <div className="hidden lg:flex items-center space-x-8">
                             <Link href="/usecases" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Use Cases</Link>
+                            <Link href="/playbooks" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Playbooks</Link>
                             <Link href="/features" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Features</Link>
                             <a href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
                             <a href="/pricing" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
