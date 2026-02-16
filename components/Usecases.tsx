@@ -1,6 +1,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Navbar from './Navbar';
+import Footer from './Footer';
 import {
     Zap,
     Heart,
@@ -223,21 +225,8 @@ const Usecases = () => {
     return (
         <div className="min-h-screen bg-[#030303] text-white">
             {/* Navigation */}
-            <nav className="fixed top-0 w-full z-50 nav-blur border-b border-white/[0.05] px-4 sm:px-6 py-4">
-                <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <Link href="/" className="flex items-center space-x-2 sm:space-x-2.5 group">
-                        <img src="/icon-white.png" alt="Auxio" className="w-7 h-7 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" />
-                        <span className="font-bold text-lg sm:text-xl tracking-tight text-white">Auxio</span>
-                    </Link>
-                    <div className="flex items-center space-x-2 sm:space-x-6">
-                        <Link href="/" className="text-xs sm:text-sm font-medium text-[#8a8a8a] hover:text-white flex items-center gap-1.5 sm:gap-2 hidden sm:flex">
-                            <ArrowLeft size={16} />
-                            <span>Go Back</span>
-                        </Link>
-                        <a href="https://app.auxio.co/signup" className="btn-primary text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5">Hire your first AI</a>
-                    </div>
-                </div>
-            </nav>
+            {/* Navigation */}
+            <Navbar />
 
             <main className="pt-28 sm:pt-40 pb-16 sm:pb-32 px-4 sm:px-6">
                 <div className="max-w-7xl mx-auto">
@@ -285,15 +274,8 @@ const Usecases = () => {
             </main>
 
             {/* Footer */}
-            <footer className="py-10 sm:py-20 px-4 sm:px-6 border-t border-white/[0.05]">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-10">
-                    <div className="flex items-center space-x-2.5">
-                        <img src="/icon-white.png" alt="Auxio" className="w-6 h-6" />
-                        <span className="font-bold tracking-tight">Auxio</span>
-                    </div>
-                    <div className="text-xs sm:text-sm text-[#555] text-center">© 2024 Auxio Labs Inc. Verified Autonomous Platform.</div>
-                </div>
-            </footer>
+            {/* Footer */}
+            <Footer />
         </div>
     );
 };

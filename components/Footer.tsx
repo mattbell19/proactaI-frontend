@@ -14,7 +14,7 @@ export default function Footer() {
                     ))}
                     <Link href="/investors" className="hover:text-white transition-colors">Investors</Link>
                 </div>
-                <div className="text-sm text-[#555]">© 2024 Auxio Labs Inc.</div>
+                <div className="text-sm text-[#555]">© 2026 Auxio Labs Inc.</div>
             </div>
         </footer>
     );
