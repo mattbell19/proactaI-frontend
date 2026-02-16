@@ -310,13 +310,16 @@ const PlaybookCard = ({ data }: { data: Playbook }) => {
                         </div>
 
                         <div className="mt-8 flex justify-end">
-                            <button className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-indigo-600 px-6 font-medium text-white transition-all duration-300 hover:bg-indigo-700 hover:w-full w-auto">
+                            <a
+                                href="https://app.auxio.co/signup"
+                                className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-indigo-600 px-6 font-medium text-white transition-all duration-300 hover:bg-indigo-700 hover:w-full w-auto"
+                            >
                                 <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
                                     <div className="relative h-full w-8 bg-white/20" />
                                 </div>
                                 <span className="mr-2">Run Playbook</span>
                                 <Play size={16} fill="currentColor" />
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
