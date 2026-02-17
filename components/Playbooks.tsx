@@ -21,7 +21,8 @@ import {
     Image as ImageIcon,
     Calendar,
     Database,
-    Send
+    Send,
+    LayoutDashboard
 } from 'lucide-react';
 
 // Types
@@ -203,6 +204,55 @@ const PLAYBOOKS: Playbook[] = [
                     <span className="text-indigo-400 font-bold">3. Outreach:</span> Drafted email focusing on "Auxio's AI Stack".
                     <br />
                     <span className="text-indigo-400 font-bold">4. Manage:</span> Invite sent &rarr; CRM updated to "Interview Scheduled".
+                </>
+            )
+        }
+    },
+    {
+        badge: {
+            icon: LayoutDashboard,
+            label: "Executive Assistant",
+            colorClass: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+            iconColor: "text-cyan-400"
+        },
+        impact: { icon: Clock, label: "15-25h Saved/wk", color: "text-emerald-400" },
+        title: <>Autonomous Executive <br /> Assistant</>,
+        description: "Acts as your full-time EA: handles inbox triage, schedules meetings intelligently, manages tasks and reminders, prepares briefings and docs, researches topics, and flags priorities — all with context from your history. Like a real Chief of Staff, but 24/7 and never forgets.",
+        stats: [
+            { label: "Admin Eliminated", value: "15-25h", sub: "/wk" },
+            { label: "Availability", value: "24/7" }
+        ],
+        stack: [
+            { icon: Mail, label: "Gmail", color: "text-red-400" },
+            { icon: Calendar, label: "Calendar", color: "text-yellow-400" },
+            { icon: CheckSquare, label: "Tasks", color: "text-indigo-400" },
+            { icon: FileSpreadsheet, label: "Sheets", color: "text-emerald-400" },
+            { icon: FileText, label: "Docs", color: "text-blue-400" },
+            { icon: ImageIcon, label: "Nano Banana", color: "text-purple-400" },
+            { icon: Globe, label: "Search", color: "text-orange-400" },
+            { icon: Send, label: "Telegram", color: "text-blue-400" }
+        ],
+        terminal: {
+            fileName: "morning_brief.md",
+            status: "Building daily brief: Scanning 23 unread threads...",
+            content: (
+                <>
+                    <span className="text-cyan-400 font-bold"># Daily EA Protocol</span>
+                    <br />
+                    Acting as Executive Assistant for today.
+                    <br /><br />
+                    <span className="text-emerald-400 font-bold">1. Inbox Triage:</span> Scanning Gmail — classify as{' '}
+                    <span className="text-white bg-red-500/20 px-1 rounded">Action Required</span>{' '}
+                    <span className="text-white bg-blue-500/20 px-1 rounded">Info Only</span>{' '}
+                    <span className="text-white bg-amber-500/20 px-1 rounded">Delegate</span>.
+                    <br />
+                    <span className="text-emerald-400 font-bold">2. Calendar Audit:</span> Checking for conflicts/overlaps &rarr; Suggest optimizations.
+                    <br />
+                    <span className="text-emerald-400 font-bold">3. Task Review:</span> Kanban scan for overdue/high-priority items. Pulling metrics from Sheets.
+                    <br />
+                    <span className="text-emerald-400 font-bold">4. Morning Brief:</span> Compile 3-min summary + Nano Banana calendar heatmap.
+                    <br />
+                    <span className="text-emerald-400 font-bold">5. Execute:</span> Draft replies, create events/tasks &rarr; Telegram for approvals.
                 </>
             )
         }
