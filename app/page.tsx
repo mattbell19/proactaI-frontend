@@ -211,7 +211,7 @@ export default function Home() {
                             <Link href="/usecases" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Use Cases</Link>
                             <Link href="/playbooks" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Playbooks</Link>
                             <Link href="/features" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white hover:text-white/80 transition-colors">Features</Link>
-                            <a href="#" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
+                            <a href="/playbooks" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
                             <a href="/pricing" className="text-2xl font-bold text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
                         </nav>
                         <div className="space-y-4 pt-8 border-t border-white/10">
@@ -233,7 +233,7 @@ export default function Home() {
                             <Link href="/usecases" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Use Cases</Link>
                             <Link href="/playbooks" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Playbooks</Link>
                             <Link href="/features" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Features</Link>
-                            <a href="#" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
+                            <a href="/playbooks" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Templates</a>
                             <a href="/pricing" className="text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors">Pricing</a>
                         </div>
                     </div>
@@ -263,7 +263,7 @@ export default function Home() {
                                 <span>Hire your first AI</span>
                                 <ArrowRight size={18} />
                             </a>
-                            <button className="btn-secondary w-full sm:w-auto text-base px-8 sm:px-10 py-4">View Templates</button>
+                            <a href="/playbooks" className="btn-secondary w-full sm:w-auto text-base px-8 sm:px-10 py-4">View Templates</a>
                         </div>
 
                         {/* Powered by OpenClaw */}
