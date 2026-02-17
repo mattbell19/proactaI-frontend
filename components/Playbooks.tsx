@@ -22,7 +22,8 @@ import {
     Calendar,
     Database,
     Send,
-    LayoutDashboard
+    LayoutDashboard,
+    Rocket
 } from 'lucide-react';
 
 // Types
@@ -253,6 +254,53 @@ const PLAYBOOKS: Playbook[] = [
                     <span className="text-emerald-400 font-bold">4. Morning Brief:</span> Compile 3-min summary + Nano Banana calendar heatmap.
                     <br />
                     <span className="text-emerald-400 font-bold">5. Execute:</span> Draft replies, create events/tasks &rarr; Telegram for approvals.
+                </>
+            )
+        }
+    },
+    {
+        badge: {
+            icon: Rocket,
+            label: "Founder Agent",
+            colorClass: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+            iconColor: "text-orange-400"
+        },
+        impact: { icon: TrendingUp, label: "10-15h Reclaimed/wk", color: "text-emerald-400" },
+        title: <>Solo Founder <br /> Growth Sprint</>,
+        description: "Turns vague weekly goals into a full executable plan: pulls metrics, researches quick wins and competitor moves, generates outreach and content assets, creates a prioritized task board with time blocks, and delivers a complete growth brief. Move the needle without burning out.",
+        stats: [
+            { label: "Planning Saved", value: "10-15h", sub: "/wk" },
+            { label: "Execution", value: "Automated" }
+        ],
+        stack: [
+            { icon: FileSpreadsheet, label: "Sheets", color: "text-emerald-400" },
+            { icon: Globe, label: "Search", color: "text-orange-400" },
+            { icon: FileText, label: "Docs", color: "text-blue-400" },
+            { icon: ImageIcon, label: "Nano Banana", color: "text-purple-400" },
+            { icon: CheckSquare, label: "Tasks", color: "text-indigo-400" },
+            { icon: Calendar, label: "Calendar", color: "text-yellow-400" },
+            { icon: Send, label: "Telegram", color: "text-blue-400" },
+            { icon: Mail, label: "Gmail", color: "text-red-400" }
+        ],
+        terminal: {
+            fileName: "growth_sprint.yml",
+            status: "Sprint executing: Generating outreach assets for 3 high-priority targets...",
+            content: (
+                <>
+                    <span className="text-orange-400 font-bold"># Weekly Founder Growth Sprint</span>
+                    <br />
+                    Pulling goals from "Weekly Goals" Sheet &rarr; Row: Week 7.
+                    <br /><br />
+                    <span className="text-emerald-400 font-bold">1. Metrics Pull:</span> Revenue, leads, traffic from connected Sheets. Delta vs last week.
+                    <br />
+                    <span className="text-emerald-400 font-bold">2. Research:</span> Brave search for competitor moves + growth hacks in{' '}
+                    <span className="text-white bg-orange-500/20 px-1 rounded">AI SaaS</span> niche.
+                    <br />
+                    <span className="text-emerald-400 font-bold">3. Generate:</span> Outreach emails (3), social posts (5), one-pager w/ Nano Banana visuals.
+                    <br />
+                    <span className="text-emerald-400 font-bold">4. Plan:</span> Prioritized Kanban created &rarr; Time blocks set in Calendar.
+                    <br />
+                    <span className="text-emerald-400 font-bold">5. Deliver:</span> Telegram brief sent w/ full plan + progress tracker link.
                 </>
             )
         }
